@@ -1,0 +1,119 @@
+\documentclass{MScthesisITEM}
+
+% this package is just to generate text for demo-purposes
+%\usepackage{blindtext}
+\usepackage{float}
+
+\usepackage{hyperref}
+%\usepackage[section]{minted}
+%\usepackage{aeguill}
+%\usepackage{placeins}
+%\usepackage[T1]{fontenc}
+%\usepackage{tabulary}
+
+\showboxdepth=5
+\showboxbreadth=5
+
+\title{Learning Modeling Languages Using\newlinetitle Strategies from Gaming} % The title of your assignement; NB use \newlinetitle to start a newline
+\author{\O yvin Richardsen} % Your firstname and lastname
+\professor{Frank Alexander Kraemer, ITEM NTNU} % Affiliation = ITEM for instance
+\supervisor{Frank Alexander Kraemer, ITEM NTNU}
+
+%% Uncomment the following in case you want subfigures; note that there will be a warning for the caption package
+%\let\subcaption\undefined
+%\let\subfloat\undefined
+%\usepackage[bf]{caption}
+%\usepackage{subcaption}
+%\captionsetup{compatibility=false}
+
+
+\DeclareGraphicsExtensions{.pdf,.jpg,.png}
+\graphicspath{{./img/}}
+
+\loadglsentries{glossary}
+\makeglossaries
+
+\begin{document}
+\selectlanguage{english}
+\pagenumbering{roman}
+\pagestyle{plain}
+
+%% Only for the project
+\titleITEM
+
+%% Only for the master's thesis; for the project report the description is taken from It's Learning and added by the department
+\selectlanguage{english} % Change to 'norsk' if you are writing in Norwegian
+\input{problem_description}
+\cleardoublepage
+
+%% There must be an abstract in English, even though the main text is in Norwegian
+%\selectlanguage{english}
+%\include{abstract_english}
+%\cleardoublepage
+
+%% Only for the master's thesis; if the main text is in English and you can write Norwegian, there must be an abstract in Norwegian as well.A
+%\selectlanguage{norsk}
+%\include{abstract_norwegian}
+%\cleardoublepage
+
+\selectlanguage{english}% Change to 'norsk' if you are writing in Norwegian
+
+\include{preface}
+\cleardoublepage
+
+% similarly you may add a separate acknowledgments page
+
+\tableofcontents*
+\cleardoublepage
+
+%% include if relevant
+\listoffigures
+\cleardoublepage
+
+%% include if relevant
+%\listoftables
+%\cleardoublepage
+
+%% include if relevant
+%\listofalgorithms
+%\addcontentsline{toc}{chapter}{List of Algorithms}
+%\cleardoublepage
+
+
+%% include if relevant
+%\printglossary[title=List of Symbols, style=long]
+%\cleardoublepage
+%\glsaddall[]
+
+%% include if relevant
+%\printglossary[title=List of Acronyms,type=\acronymtype] % prints just the list of acronyms
+%\cleardoublepage
+
+\pagenumbering{arabic}
+\pagestyle{ruled}
+\include{intro}
+\cleardoublepage
+\include{background}
+\cleardoublepage
+\include{related_work}
+\cleardoublepage
+\include{discussion}
+\cleardoublepage
+
+\renewcommand*{\bibname}{References}
+\bibliographystyle{alpha}
+\bibliography{main}
+
+%% Uncomment the following if you have any appendix
+\appendix
+\addtocontents{toc}{%
+ \protect\vspace{1em}% 
+ \protect\noindent \bfseries \appendixtocname\protect\par
+ \protect\vspace{-.5em}%
+}
+\renewcommand{\chaptername}{\appendixname}
+%% include below possible appendices (chapters)
+\include{appendix}
+
+
+\end{document} 
