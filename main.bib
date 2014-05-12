@@ -19,6 +19,33 @@
 	publisher = {ACM},
 }
 
+@article{ becker:teaching_with_karel,
+ author = {Becker, Byron Weber},
+ title = {Teaching CS1 with Karel the Robot in Java},
+ journal = {SIGCSE Bull.},
+ issue_date = {March 2001},
+ volume = {33},
+ number = {1},
+ month = feb,
+ year = {2001},
+ issn = {0097-8418},
+ pages = {50--54},
+ numpages = {5},
+ url = {http://doi.acm.org/10.1145/366413.364536},
+ doi = {10.1145/366413.364536},
+ acmid = {364536},
+ publisher = {ACM},
+} 
+
+@article{ shaffer:epistemic_games,
+	author = {David W. Shaffer and James P. Gee},
+	title = {Before Every Child Is Left Behind: How Epistemic Games Can Solve the Coming Crisis in Education},
+	journal = {WCER Working Paper},
+	number = {7},
+	year = {2005},
+	note = {\url{http://www.wcer.wisc.edu/publications/workingpapers/Working_Paper_No_2005_7.pdf}, retrieved 2014-05-11},
+}
+
 @article{ gee:learning_machines,
 	title = 		{Learning by Design: good video games as learning machines},
 	author = 		"James P. Gee",
@@ -137,17 +164,29 @@
 	publisher = 	"Cambridge University Press",
 }
 
-@incollection{ djaouti:serious_games,
+@incollection{ djaouti:serious_games_origins,
 	year = {2011},
-	isbn = {978-1-4471-2160-2},
-	booktitle = {Serious Games and Edutainment Applications},
-	editor = {Ma, Minhua and Oikonomou, Andreas and Jain, Lakhmi C.},
-	doi = {10.1007/978-1-4471-2161-9_3},
+	crossref =	{ma:serious_games},
 	title = {Origins of Serious Games},
-	url = {http://dx.doi.org/10.1007/978-1-4471-2161-9_3},
-	publisher = {Springer London},
 	author = {Djaouti, Damien and Alvarez, Julian and Jessel, Jean-Pierre and Rampnoux, Olivier},
 	pages = {25-43},
+}
+
+@incollection{ freitas:serious_games_new_paradigm,
+	year = {2011},
+	crossref =	{ma:serious_games},
+	title = {Serious Games: A New Paradigm for Education?},
+	author = {Sara de Freitas and Fotis Liarokapis},
+	pages = {9-23},
+}
+
+@book{ ma:serious_games,
+  title =			{Serious Games and Edutainment Applications},
+  author =			{Minhua Ma and Andreas Oikonomou and Lakhmi C. Jain},
+  isbn =			{9781447121619},
+  url =				{http://link.springer.com/book/10.1007%2F978-1-4471-2161-9},
+  year =			{2011},
+  publisher =		{Springer London},
 }
 
 @book{ gee:video_games_learning,
@@ -216,6 +255,17 @@
     publisher = 	"Press",
 }
 
+@inproceedings{ anderson:c-sheep,
+	author = "Eike F. Anderson and Leigh McLoughlin",
+	title = {Do Robots Dream of Virtual Sheep: Rediscovering the
+	``Karel the Robot'' Paradigm for the ``Plug\&Play
+	Generation''},
+	booktitle = "Proceedings of GDTW2006",
+	year = 2006,
+	pages = {92--96},
+	url = {http://eprints.bournemouth.ac.uk/477/1/gdtw06aml.pdf},
+}
+
 @inproceedings{ andersen:tutorials_impact,
 	title = {The Impact of Tutorials on Games of Varying Complexity},
 	author = {Andersen, Erik and O'Rourke, Eleanor and Liu, Yun-En and Snider, Rich and Lowdermilk, Jeff and Truong, David and Cooper, Seth and Popovic, Zoran},
@@ -244,6 +294,22 @@
  	doi = {10.1145/1054972.1055047},
 	acmid = {1055047},
 	publisher = {ACM},
+}
+
+@inproceedings{esper:codespells,
+ author = {Esper, Sarah and Foster, Stephen R. and Griswold, William G.},
+ title = {CodeSpells: Embodying the Metaphor of Wizardry for Programming},
+ booktitle = {Proceedings of the 18th ACM Conference on Innovation and Technology in Computer Science Education},
+ series = {ITiCSE '13},
+ year = {2013},
+ isbn = {978-1-4503-2078-8},
+ location = {Canterbury, England, UK},
+ pages = {249--254},
+ numpages = {6},
+ url = {http://doi.acm.org/10.1145/2462476.2465593},
+ doi = {10.1145/2462476.2465593},
+ acmid = {2465593},
+ publisher = {ACM},
 } 
 
 @inproceedings{ huang:graphstract,
@@ -301,11 +367,29 @@
 	doi = {10.1109/VLHCC.2007.9},
 }
 
+@article{ krause:computer_science_air_force,
+ author = {Krause, Kenneth L. and Sampsell, Robert E. and Grier, Samuel L.},
+ title = {Computer Science in the Air Force Academy Core Curriculum},
+ journal = {SIGCSE Bull.},
+ issue_date = {February 1982},
+ volume = {14},
+ number = {1},
+ month = feb,
+ year = {1982},
+ issn = {0097-8418},
+ pages = {144--146},
+ numpages = {3},
+ url = {http://doi.acm.org/10.1145/953051.801356},
+ doi = {10.1145/953051.801356},
+ acmid = {801356},
+ publisher = {ACM},
+} 
+
 %*************************************************************
 % PROCEEDINGS
 %*************************************************************
 
-@proceedings{ conference:system_analysis_modeling,
+@proceedings{ kraemer:modeling,
 	title = 		"System {A}nalysis and {M}odeling: {A}bout {M}odels",
 	editor =     	"Frank A. Kraemer and Peter Herrmann",
 	year = 			"2010",
@@ -318,9 +402,20 @@
 % PHDTHESIS
 %*************************************************************
 
-@phdthesis{ phd:frank,
+@phdthesis{ kraemer:reactive_systems,
 	title = 		"Engineering {R}eactive {S}ystems: {A} {C}ompositional and {M}odel-{D}riven {M}ethod {B}ased on {C}ollaborative {B}uilding {B}locks",
 	author =     	"Frank A. Kraemer",
 	year = 			"2008",
 	school = 		"Norwegian University of Science and Technology (NTNU)",
+}
+
+%*************************************************************
+% TECHREPORTS
+%*************************************************************
+
+@techreport{ untch:karel_conventional_language,
+	author = "Roland H. Untch",
+	title = {Teaching Programming Using the	Karel the Robot Paradigm	Realized with a Conventional Language},
+	institution = "Department of Computer Science, Clemson University", 
+	year = 1990,
 }

@@ -1,6 +1,6 @@
 \chapter{Related Work}
 \label{ch:related_work}
-This chapter outlines previous work by other researchers that is relevant to this thesis, supplementing the background information provided in Ch.~\ref{ch:background}. It primarily includes work on tutorial design and teaching through games.
+This chapter outlines previous work by other researchers that is relevant to this thesis, supplementing the background information provided in Ch.~\ref{ch:background}. A lot of work and research has been and is being done in the field of learning with games and game-like approaches, but for practical reasons (there is a lot of material) this chapter only summarizes what I've found to be most relevant. This primarily includes work on tutorial design and teaching computer-related tasks through games, but some other work is also included to add perspective.
 
 \section{Tutorial Design}
 \label{sec:tutorial_design}
@@ -39,6 +39,7 @@ In their work, they propose the use of a tutorial-like documentation process cal
 \end{figure}
 
 \noindent
+TODO: rewrite
 Finally, a user study is conducted by the authors to evaluate their system, yielding positive results. The usefulness of the \emph{DocWizards} approach has also been verified in a separate study~\cite{gweon:evaluating_docwizards}.
 
 \subsection{Graphstract}
@@ -93,6 +94,10 @@ Attempting to provide the best of several worlds, the authors suggest their \emp
 \noindent
 Through the results of two user studies, the authors show that the \emph{ToolClips} approach significantly improves users' understanding of how to use elements, and additionally has a positive impact on retention of this understanding, for applications that are \emph{highly graphical}.
 
+\subsection{A Summary of Good Practices for Tutorials}
+\label{sec:good_practices_tutorials}
+TODO
+
 \section{Learning With Games}
 \label{sec:learning_with_games}
 Most video games require the player to learn something in order to complete the game, whether it is difficult concepts like solving obscure puzzles, or simply the controls of the game. In some cases, games are even used to teach concepts for educational purposes, such as programming. In other cases, games even teach players valuable real-life skills without being deliberately designed to do so. The following sections briefly describe some of the efforts previously made in the field of educational games.
@@ -106,7 +111,7 @@ The motivation behind Karel was to be able to teach students the basics programm
 
 \noindent
 Karel was originally designed as a Pascal-like procedural programming language, but the concept gained wide popularity, and has been extended to Java~\cite{roberts:karel_the_robot_java},
-Python\footnote{\url{http://gvr.sourceforge.net/}}$^{,}$\footnote{\url{https://code.google.com/p/rur-ple/}}, Karel++ (object-orientation)~\cite{bergin:karel_plus_plus}, REALbasic\footnote{\url{http://www.ohloh.net/p/rbkarel}}, and Scratch\footnote{\url{http://scratched.media.mit.edu/resources/karel-robot-scratch}}. Karel was inspired by the LOGO project\footnote{\url{http://el.media.mit.edu/logo-foundation/index.html}}, and has in turn inspired games like RoboMind.\footnote{\url{http://www.robomind.net/en/index.html}}
+Python,\footnote{\url{http://gvr.sourceforge.net/}}$^{,}$\footnote{\url{https://code.google.com/p/rur-ple/}} Karel++ (object-orientation)~\cite{bergin:karel_plus_plus}, REALbasic,\footnote{\url{http://www.ohloh.net/p/rbkarel}} and Scratch.\footnote{\url{http://scratched.media.mit.edu/resources/karel-robot-scratch}} Karel was inspired by the LOGO project,\footnote{\url{http://el.media.mit.edu/logo-foundation/index.html}} and has in turn inspired games like RoboMind\footnote{\url{http://www.robomind.net/en/index.html}} and C-Sheep~\cite{anderson:c-sheep}.
 
 \noindent
 The purpose of the game is to control a robot (Karel) by giving it a set of commands, and perform tasks. Initially, only a small set of commands are available, but as part of the learning process, users must learn how to extend these commands. The simplest task Karel is asked to perform is to pick up a beeper, seen as the diamond shape in Fig.~\ref{fig:karel_the_robot}.
@@ -118,6 +123,9 @@ The purpose of the game is to control a robot (Karel) by giving it a set of comm
 	\label{fig:karel_the_robot}
 \end{figure}
 
+\noindent
+Karel the Robot has now been around for more than 30 years, and the teaching paradigm described has proved successful in introducing students to the art of programming.\footnote{See for example~\cite{krause:computer_science_air_force},~\cite{untch:karel_conventional_language},~\cite{becker:teaching_with_karel}} Students are allowed to explore advanced concepts in a safe environment with less relevant complexities removed, and in a way that makes them \emph{want} to learn. The concept has been adapted and refined in many ways over the years, but the core paradigm remains.
+
 \subsection{Josef the Robot}
 \label{sec:josef_the_robot}
 Josef the Robot~\cite{tomek:josef_the_robot} is a game-like programming environment similar to Karel (Sect.~\ref{sec:karel_the_robot}). Unlike Karel, Josef more closely resembles ``real'' programming languages by being rich in structures and operations. Like Karel, Josef is also inspired by the LOGO project.
@@ -125,17 +133,105 @@ Josef the Robot~\cite{tomek:josef_the_robot} is a game-like programming environm
 \noindent
 The author of Josef, Ivan Tomek, provides ample motivation for creating a more novice-friendly environment for learning how to program. Firstly, potential learners should find the problems they can solve with programming to be interesting, which is likely not the case (for the average person) with problems like sorting a sequence of numbers. Furthermore, novice programmers should not have to worry about the more complex rules that are not directly related to problem-solving, such as syntax and data handling.
 
-\subsection{CodeSpells}
-\label{sec:codespells}
-
-
-\subsection{Serious Games}
+\subsection{Serious and Epistemic Games}
 \label{sec:serious_games}
-Games that are designed for a purpose that is not pure entertainment are often called \emph{Serious Games}, a term likely popularized by The Serious Games Initiative\footnote{\url{http://www.seriousgames.org/}} in 2002~\cite{djaouti:serious_games}. This genre encompasses many different types of games, but a prime example of a serious game is the \emph{flight simulator}, a realistic type of game extensively used to teach pilots how to fly aircraft.
+Games that are designed for a purpose that is not pure entertainment are often called \emph{Serious Games}, a term likely popularized by \emph{The Serious Games Initiative}\footnote{\url{http://www.seriousgames.org/}} in 2002~\cite{djaouti:serious_games_origins}. This genre encompasses many different types of games, but a prime example of a serious game is the \emph{flight simulator}, a realistic type of game that exists in various forms, and is extensively used to teach pilots how to fly aircraft.
 
 \noindent
-Several organizations working with serious games exist. Some examples are the \emph{Serious Games Institute}\footnote{\url{http://www.seriousgamesinstitute.co.uk/}} the \emph{Games Learning Society}\footnote{\url{http://www.gameslearningsociety.org/}}, the \emph{Learning Games Network}\footnote{\url{http://learninggamesnetwork.org/}}, and \emph{Serious Games Interactive}\footnote{\url{http://www.seriousgames.net/}}.
+The idea behind serious games is to improve student motivation and engagement by providing immersive learning experiences, similar to how many professions are taught. I can read a lot about woodworking, but in order to become a good carpenter, I must practice. Seeing actual results of my knowledge and skills in woodworking is also likely to be more enjoyable than simply imagining how it might look. Games can provide a similar kind of (simulated) hands-on experience for topics that are difficult or inconvenient to practice immersively, especially more abstract topics like math or computer programming, and this has also proved to be a more efficient learning method in many cases. Children especially learn and are better motivated by the kind of problem-solving we find in games, as opposed to traditional textbook learning~\cite{freitas:serious_games_new_paradigm}.
 
-\subsection{Kahoot}
-Not relevant?
+\noindent
+Several organizations working with serious games exist. Some examples are the \emph{Serious Games Institute},\footnote{\url{http://www.seriousgamesinstitute.co.uk/}} the \emph{Games Learning Society},\footnote{\url{http://www.gameslearningsociety.org/}} the \emph{Learning Games Network},\footnote{\url{http://learninggamesnetwork.org/}} and \emph{Serious Games Interactive}.\footnote{\url{http://www.seriousgames.net/}} These represent both commercial, societal, and academic interest in serious games.
+
+\noindent
+Researchers at the University of Wisconsin coined the term \emph{Epistemic Games} for the subset of serious games that aim to teach specific professions or skills~\cite{shaffer:epistemic_games}. They argue that games can help teach students to apply their knowledge, instead of simply remembering, in addition to facilitate for \emph{innovative} learning. With this as a basis, \emph{The Games and Professional Simulations Research Consortium}\footnote{\url{http://edgaps.org/gaps/}} has been formed in order to solve educational challenges through games and simulations.
+
+\subsection{CodeSpells}
+\label{sec:codespells}
+\emph{CodeSpells} is a project from the University of California, San Diego, that aims to teach Java programming through a wizardry game~\cite{esper:codespells}. The CodeSpells team draws inspiration from the \emph{epistemic games} concept, and their games immerses novice programmers in a world that connects abstract code (Fig.~\ref{fig:codespells_spell}) with visual and ``physical'' effects in the environment (Fig.~\ref{fig:codespells_fire}).
+
+\begin{figure}[htp]
+	\centering
+	\includegraphics[scale=0.80]{codespells_spell}
+	\caption[Java code for a CodeSpells spell]{An example of the CodeSpells spellbook, with Java code for the \emph{Flame} spell. The second page adds a short description, and a tip on how the spell can be modified. \emph{Image source:~\cite{esper:codespells}}}
+	\label{fig:codespells_spell}
+\end{figure}
+
+\begin{figure}[htp]
+	\centering
+	\includegraphics[scale=0.80]{codespells_fire}
+	\caption[The CodeSpells game environment]{The game environment presented to the user in \emph{CodeSpells}. In this particular quest, the player must modify the \emph{Flame} spell (Fig.~\ref{fig:codespells_spell}) in order to extinguish the fire by setting \emph{thing.onFire(false)}. Image source: \emph{\url{https://sites.google.com/a/eng.ucsd.edu/codespells/home/level-1-quests}}}
+	\label{fig:codespells_fire}
+\end{figure}
+
+\noindent
+An important goal for the CodeSpells project is for students to gain a deep understanding of the programming language they use and problems they solve, and retain this understanding after completing the game. They would also like the students to be able to play the game without instructor assistance, and have focused extensively on designing quests that provide the appropriate scaffolding, as well as encourage exploration beyond the minimum required to move on~\cite{esper:design_quests_java_concepts}.
+
+\noindent
+In order to verify and improve the usefulness of their game for teaching programming, the CodeSpells team have conducted some user studies. Through these studies, they discovered that by immersing users in the game, the users developed a determination and a positive outlook on solving programming challenges~\cite{esper:codespells}. The team also discovered some principles that can be used to improve quest design~\cite{esper:design_quests_java_concepts}:
+
+\begin{itemize}
+	\item Provide examples that can be tested and used as a starting point, allowing users to see their effects.
+	\item While the introduction should make it possible to perform complex actions with little effort, expectations for more effort should be provided from the beginning, letting users know that they have to build on and modify the examples.
+	\item Provide directed exploration through quests, so the user can get a sense of complexity ordering and a choice of which challenge to overcome.
+\end{itemize}
+
+\noindent
+These principles can likely also be used to improve design of other serious games.
+
+\subsection{Non-Serious Games}
+\label{sec:non-serious_games}
+While the term \emph{Serious Games} covers the type of games that are designed for purposes other than entertainment, there are many examples of games designed for entertainment that ``accidentally'' teach their players valuable skills and knowledge.
+
+\noindent
+James P. Gee is a famous advocate for game-based learning. Through his analysis of various ``non-serious'' games, he identifies good principles of learning present in many of these games~\cite{gee:learning_machines}:
+
+\begin{itemize}
+	\item{\textbf{Empowered Learners:}} Players feel like active agents while playing, and not just passive recipients of information. Games are interactive, which leads to perceived ownership and engaged participation.
+	\item{\textbf{Customization:}} Players are in many cases allowed to make choices about how to play, such as adjusting difficulty or playing style. People are different, and learn in different ways.
+	\item{\textbf{Identity:}} Players often take on new identities within the game, in which they become heavily invested. This leads to a level of commitment that facilitates for deep learning.
+	\item{\textbf{Manipulation and Distributed Knowledge:}} When players are able to control and manipulate a character or an object in the game environment, they feel expanded and empowered. Often, part of the knowledge required for manipulation is stored in the game itself (automated), so that the player can focus on the parts that are important for their task (and ``level of abstraction'').
+	\item{\textbf{Well-ordered Problems:}} Players are exposed to problems in a well-ordered manner, so that they can form hypotheses that not only work in the moment, but prepare them for more difficult challenges later in the game.
+	\item{\textbf{Pleasant Frustration:}} Players are exposed to problems that are neither too easy or too hard, but at the edge of the players' competence, and at their own pace.
+	\item{\textbf{Cycles of Expertise:}} Players are allowed to repeat and practice skills until they become nearly automatic. Then, as the game progresses, they might have to adapt their skills to new conditions, and repeat the cycle.
+	\item{\textbf{Context-sensitivity of Information:}} Players are often presented with the information they need \emph{when} they need it, instead of having to memorize it in advance.
+	\item{\textbf{Fish Tanks:}} In many cases, games serve as simplified versions of real-world systems, and illustrate some important concepts while hiding complexities that might be too difficult to handle for novices. Sometimes, such fish tanks are also created within the game itself, in the form of tutorials. This allows players to exercise their skills without having to worry about \emph{all} the details.
+	\item{\textbf{Sandboxes:}} Games also provide a safe environment for exercising skills, where the cost of failure generally is low compared to the real world.
+	\item{\textbf{Skills as Strategies:}} Instead of practicing for the sole purpose of becoming good, players see the skills they learn as a strategy towards accomplishing goals within the game. This provides better motivation by allowing ``in-context'' practice.
+	\item{\textbf{System Thinking:}} Many games consist of smaller elements, where players must understand how all the elements interact fit into the overall system of the game.
+	\item{\textbf{Meaning as Action Image:}} Instead of just providing definitions and descriptions, games present concepts through visualizations and experiences, which is closer to how people actually think.
+\end{itemize}
+
+\noindent
+These are clearly principles that should be considered also in serious and educational games, not only those made for entertainment. As Gee points out, \emph{``When we think of games, we think of fun. When we think of learning, we think of work''}. If done right, it is likely possible to merge the tedious process of learning with the fun of games with equal or better results.
+
+\subsection{A Summary of Good Practices for Educational Games}
+\label{sec:good_practices_games}
+TODO
+
+Interactiveness
+
+Context-sensitivity, help-on-demand \cite{andersen:tutorials_impact}
+
+Immersion \cite{esper:codespells}, \cite{freitas:serious_games_new_paradigm}
+
+Exploration vs guidance/Degree of freedom
+	- too much guidance hampers exploration and discovery \cite{bonawitz:double_edged_pedagogy}
+	- directed exploration, choice \cite{esper:design_quests_java_concepts}
+
+Visual mapping
+	- instruction to user interface \cite{huang:graphstract}
+	- abstract concept to visual result \cite{esper:codespells}
+
+Simplicity vs challenge \cite{esper:design_quests_java_concepts}
+	- allow users to see results quickly during the introduction
+	- avoid less relevant complexities \cite{tomek:josef_the_robot}
+	- problems must be difficult enough to enable deep understanding
+	- provide expectations of deep understanding \cite{esper:design_quests_java_concepts}
+	- make transition to real use smooth \cite{untch:karel_conventional_language}
+
+
+Motivation
+	- benefit will outweigh learning cost \cite{grossman:software_learnability}
+	- exercises that are relevant to users \cite{kelleher:stencils}
 
