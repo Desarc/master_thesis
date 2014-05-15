@@ -1,6 +1,6 @@
 \chapter{A Tutorial for UML Activities in Reactive Blocks}
 \label{ch:reactive_blocks_tutorial}
-As the first part of my own work, I set out to make a set of tutorial exercises for learning to create \gls{uml} Activitiy diagrams in Reactive Blocks. This chapter begins by describing the motivation behind and goals for this set of exercises. A tutorial design is then proposed, followed by a description of and results from a user study.
+As the first part of my own work, I set out to make a set of tutorial exercises for learning to create \gls{uml} Activity diagrams in Reactive Blocks. This chapter begins by describing the motivation behind and goals for this set of exercises. A tutorial design is then proposed, followed by a description of and results from a user study.
 
 \section{Motivation}
 \label{sec:tutorial_motivation}
@@ -15,7 +15,7 @@ The official \gls{uml} website\footnote{\url{http://www.uml.org/\#Links-Tutorial
 
 \begin{itemize}
 	\item{\textbf{No Magic \emph{MagicDraw}:}} Not really a tutorial, but a commercial software product for software modeling. A quick inspection of the trial version does not reveal any tutorial functionality other than some tips for using the software.
-	\item{\textbf{OMG's List of Training:}} Also not a tutorial, but a list of companies that offer UML training. Mostly as n-day sessions on-site.
+	\item{\textbf{\gls{omg}'s List of Training:}} Also not a tutorial, but a list of companies that offer UML training. Mostly as n-day sessions on-site.
 	\item{\textbf{Mario Jeckle - UML Tutorials:}} A German website with a lot of links to other sources of information, many of which do not even work.
 	\item{\textbf{Sparx Systems:}} The only link that actually leads to something resembling a tutorial. However, information is presented in a more documentation-like way, ignoring most practices for good tutorials.
 \end{itemize}
@@ -52,6 +52,8 @@ This section outlines the goals I set before creating the tutorial.
 
 \paragraph{Difficulty and Challenges} The exercises presented to the user should be easy enough to allow most users to complete them without much difficulty and frustration, while still communicating the lesson properly. In addition, there should be challenges, perhaps as supplementary exercises, that force the users to really think about how an element can be used, and lets them take on a different perspective for solving the problem.
 
+\paragraph{Everything in One Place} With online tutorials, users often have to change between the application window, the tutorial (often in a web browser), and any other necessary resources. This increases the short-term memory workload, since users have to remember a lot of information between the windows. One of the golden rules of \gls{ui} design is to reduce the short-term memory load~\cite{shneiderman:user_interface}, so for the tutorial, I would like to provide all the information and parts of the tutorial within Reactive Blocks, letting users find the resources they need while still being able to see the current problem. This should also help create some sense of immersion, though a standard tutorial will most likely not be nearly as immersive as a video game in any case.
+
 \noindent
 These goals provide a basis for the design of the tutorial, and will hopefully lead to a tutorial that introduces \gls{uml} Activities to novices in a better way than the existing tutorials described in Sect.~\ref{sec:existing_tutorials}.
 
@@ -60,13 +62,52 @@ These goals provide a basis for the design of the tutorial, and will hopefully l
 The tutorial design consists of three parts:
 
 \begin{itemize}
-	\item An enhanced Reactive Blocks interface, i.e. ``tutorial mode''
-	\item A teaching order for the various elements with an introduction for each element
+	\item An enhanced Reactive Blocks user interface, i.e. a \emph{tutorial mode}.
+	\item A teaching order for the various elements and concepts, with an introduction for each new element and concept.
 	\item An exercise for each step in the tutorial, implemented in Reactive Blocks. Some steps additionally have a challenge exercise.
 \end{itemize}
 
 \subsection{Reactive Blocks Tutorial Mode}
 \label{sec:reactive_blocks_tutorial_mode}
+The first part of the tutorial design is a proposal for a \emph{tutorial mode} in Reactive Blocks. Figure~\ref{fig:tutorial_mode} displays a visual mock-up of the proposed \gls{ui} design for the tutorial mode. In the middle, we see the familiar Reactive Blocks modeling canvas (10), with some elements in place for demonstrative purposes. Surrounding the modeling canvas, we see various new elements that will be explained below.
+
+\begin{figure}[htp]
+	\centering
+	\includegraphics[scale=0.45]{tutorial_mode}
+	\caption[Reactive Blocks Tutorial Mode Design]{A visual mock-up of the UI presented to users when running Reactive Blocks in the suggested tutorial mode. The regular modeling canvas is shown in the middle (10), surrounded by utility buttons and three information windows.}
+	\label{fig:tutorial_mode}
+\end{figure}
+
+\paragraph{Element Buttons (1):} Instead of the current right-click menu selection scheme for adding elements to the canvas, buttons for each type of element is placed on the side, allowing more \emph{direct manipulation}. The modeling canvas allows direct manipulation of elements already present, but allowing user to add new elements in the same way is likely to make an introduction to the software smoother and quicker for novices~\cite{shneiderman:user_interface}.
+
+\noindent
+We should also note that only a few of the possible modeling elements are present. This is meant as a way of hiding extra complexity, by only displaying the elements that have been introduced so far in the tutorial. Other elements are still available via the right-click menu.
+
+\paragraph{\emph{Build and Run} Button (2):} In order to see the results of running a program, users have to first \emph{build} their model (generate executable code) and then run it. Learning how to do this involves several steps, such as navigating drop-down menus and choosing Java platform (see the ``Building and running the exercises'' part of Appx.~\ref{appx:tutorial}), While highly relevant when learning to work with Reactive Blocks, this process adds complexity that is less relevant for learning to work with \gls{uml} Activities. The purpose of the button is to remove the complexities by automatically performing the needed operations to run and build the model, with some default options that work with the tutorial. Like the element buttons, this button also allows more \emph{direct manipulation}.
+
+\paragraph{\emph{Show Solution} Button (3):} In some cases, users may be unable to progress in a tutorial because they get stuck at certain steps. In this case, it is natural to ask for help from an instructor, but we would like users to be able to complete the tutorial without outside help. One way of doing this is to allow the users to see the solution to an exercise (in a pop-up window) when they are unable to complete it. Ideally, this button should only become visible after a certain time has passed, so as not to tempt the user into checking the solution before a serious attempt at finding it has been made.
+
+\noindent
+An additional advantage is that when multiple solutions are possible, the user may discover a different approach than the one proposed, offering multiple perspectives to the same concept. To this end, a solution can be provided to the user even in cases of success, allowing comparison of solutions and additional reflection.
+
+\paragraph{Information about operations (4):} One of the goals for the tutorial was to avoid users having to deal with Java code, as this adds complexity that is less relevant to learning about \gls{uml} Activities. The users still need to know what the predefined operations they are using in their models actually do, and the name is not always enough of a description. The tutorial mode adds a clickable ``?'' on the operation icon, which opens a sticky note providing a short description of what the operation does. The sticky note is then removed when the user clicks somewhere else.
+
+\paragraph{\emph{General Tips} Window (5):} This window provides the users with some general tips on how to work with Reactive Blocks and \gls{uml} Activities. These should not be necessary to complete the tutorial, but may provide more interested or advanced users with some additional information about what goes on behind the curtains. Their purpose is also to ease the transition towards working with Reactive Blocks without the training wheels provided by the tutorial, for users to whom this is relevant.
+
+\paragraph{\emph{Hint} Button (6):} Like the \emph{Show Solution}
+button, the purpose of the \emph{Hint} button is to provide users that are unable to complete the tutorial on their own with some help. Unlike the solution however, this button is always visible. The hints provided should not give away the solution, but rather offer some insight about the task, concepts, or elements presented, that may not be obvious to all users.
+
+\paragraph{\emph{Show Introduction} Button (7):} An important part of the tutorial is the introduction, which is provided at each step. The introduction gives the user some basic information about the new concepts and elements introduced at the current step, allowing the user to understand and use the elements and concepts to complete the task. Since activity steps in Reactive Blocks describe events in time, it is natural to use animation to communicate this information~\cite{morrison:animation}, perhaps supplemented by audio or textual descriptions. This animation is displayed when the user first enters the step, and the button allows the user to review the animation when this is needed.
+
+\paragraph{\emph{Tell me more about...} drop-down menu (8):} This menu serves as the \emph{help-on-demand} part of the tutorial. In the menu, the user can select various concepts and elements to see more extensive and detailed information about them, either in an embedded pop-up window or through external resources, such as online documentation.
+
+\paragraph{\emph{Task} Window (9):} This window simply shows the task the user needs to complete for the current step.
+
+\noindent
+Unfortunately, Reactive Blocks is a closed source product, meaning I was not able to implement and test this tutorial mode design. It is however still highly relevant to the thesis, as it was supposed to cover several of the good practices for tutorials, and serves as a basis for the \gls{ui} presented in the game in Ch.~\ref{ch:tutorial_game}.
+
+\noindent
+Since I was not able to implement this design in Reactive Blocks, I had to give up some of the goals I set for the tutorial. I was, for example, not able to provide \emph{everything in one place}. The tasks and exercises were still implemented in Reactive Blocks, but the introductions and information about concepts and elements had to be provided in a separate document (see Appx.~\ref{appx:tutorial}) and as text and images only, not animations. In addition, it was difficult to provide \emph{solutions} to the exercises, and instead of abstracting away the process of \emph{building and running}, a description of how to do it manually was added. In the end, there was more focus on learning processes specific to Reactive Blocks than originally intended. Help-on-demand was only offered by a reference to the official online documentation.
 
 \subsection{Teaching Order}
 \label{sec:teaching_order}
@@ -89,7 +130,7 @@ Finding a good teaching order was challenging, but after a lot of consideration 
 		\hline
 		4 & Looping & Merge, Flow Break \\
 		\hline
-		5 & Parallelism & Fork, Event Reception \\
+		5 & Parallelism and Concurrency & Fork, Event Reception \\
 		\hline
 		6 & Synchronization & Join \\
 		\hline
@@ -101,6 +142,19 @@ Finding a good teaching order was challenging, but after a lot of consideration 
 \end{table}
 
 \noindent
+The reasons for the choice of ordering are explained below:
+
+\begin{itemize}
+	\item{\textbf{Step 1:}} This step introduces the core concepts and elements that are required for an application that does something the user can see the result of.
+	\item{\textbf{Step 2:}} Timers were introduced in the second step, because they provide a simple and intuitive way of dividing a program into more than one activity step. They also need to be introduced before flow breaks.
+	\item{\textbf{Step 3:}} This step introduces alternate branches and decisions. Branches must be introduced before loops, to provide a way of breaking the loop. Decisions also require the users to know about object flow, but this is also the first instance where this type of flow is needed.
+	\item{\textbf{Step 4:}} This step introduces loops with merge nodes. Merge nodes are also very useful when working with concurrency. Loops must also be split into more than one step, which can be done elegantly and without adding delay by using the flow break.
+	\item{\textbf{Step 5:}} Users should now be comfortable enough with basic concepts to start working with concurrency. Concurrent branches are also required before join nodes become useful.
+	\item{\textbf{Step 6:}} The final core element to be introduced is the join node.
+	\item{\textbf{Step 7:}} Modularization and local blocks are without doubt the most advanced concepts taught by this tutorial, because of how they are implemented in Reactive Blocks. Using a local block requires the user to learn an additional concept, \glspl{esm}, and if the user wants to make a new local block, input and output pins must be considered.
+\end{itemize}
+
+\noindent
 For each new concept and element, a short textual introduction is provided. I attempted to make these descriptions as short as possible, while making sure they still covered the concepts adequately. \emph{Adequately} was entirely based on my own judgment, but the user test conducted in Sect.~\ref{sec:tutorial_testing} offers some insight into whether this was true.
 
 \noindent
@@ -108,7 +162,130 @@ The complete tutorial document, with introduction text for each concept and elem
 
 \subsection{Tutorial Exercises}
 \label{sec:tutorial_exercises}
+For each of the seven steps described in Sect.~\ref{sec:teaching_order}, I designed and implemented an exercise in Reactive Blocks. The exercises were designed as unfinished blocks with predefined operations, which the user had to complete and then run to see if the result was correct. Some steps additionally had extra challenge exercises, which were optional but encouraged. This section describes each exercise and its purpose. The exercise project is also available online for download.\footnote{\url{https://github.com/Desarc/reactive-blocks-tutorials/tree/master/no.ntnu.item.tutorials}}
 
+\subsubsection{Exercise 1 - Hello World!}
+Everyone who has learned programming in any way has likely created a ``Hello World!'' program at some point. It is one of the simplest programs one can make, also in Reactive Blocks, and used as the first step of programming introductions almost universally. To students, this is likely to be a familiar example.
+
+\paragraph{Task:} Create a ``Hello World!'' program.
+
+\paragraph{Purpose:} Teach users about \emph{activity steps}, \emph{tokens}, \emph{edges}, and \emph{operations} with a very simple example. Users also have to use an \emph{Initial Node} to start the application. Use of the \emph{Activity Final} is optional, but users will hopefully discover that they have to terminate the program manually if this element is not included. Note that this exercise only demonstrates a single activity step, and likely does not offer sufficient understanding of this concept for later use.
+
+\paragraph{Challenge exercise:} The challenge exercise asks users to create a program that prints one message, then a second message, then the first message again. The purpose is for users to (hopefully) discover that operations can be used more than once in the same \gls{uml} Activity diagram.
+
+\subsubsection{Exercise 2 - Delays}
+A very important aspect of \gls{uml} Activities is that activity steps are essentially atomic, meaning that logically there is zero delay between operations in the same step. Operations are also not allowed to wait or block, and while in reality each activity step takes some time to complete, they logically happen instantly. Delays are then used to provide waiting capabilities without blocking the application, allowing other steps to run in the meantime.
+
+\paragraph{Task:} Create a program that displays a light, sets its color to red, then changes it from red to green after 5 seconds. Make sure you have time to see that the light has changed before the program terminates.
+
+\paragraph{Purpose:} Teach users about \emph{timers}, \emph{stable positions} and multiple activity steps. This exercise only illustrates how timers can be used to implement delays, and not how they allow other parts of the program to run in the meantime.
+
+\paragraph{Challenge exercise:} The challenge exercise asks users to create a more advanced traffic light, with several more steps and transitions. While strictly speaking equally complex and with no new perspective added, it gives the users more practice in working with timers. Users may also notice that the larger model requires a little more mental effort to set up and possibly debug.
+
+\subsubsection{Exercise 3 - Choices}
+Branching is an important concept in computer programming. Depending on specific data or events, one may want the program to behave differently. Reactive Blocks and \gls{uml} Activities also implements this concept, by allowing an activity step to take different paths, depending on some data that is carried by the active token.
+
+\paragraph{Task:} Create a program that generates a random number between 0 and 200, and prints ``Small!'' if the number is smaller than 100, and ``Big!'' if the number is greater than 100.
+
+\paragraph{Purpose:} Teach users about \emph{alternate branches}, \emph{decisions}, and \emph{object flow}. Users must learn how to pass data between elements in the diagram, and to set guards on the edges from a decision to decide which path the program should take.
+
+\paragraph{Challenge exercise:} The challenge exercise asks users to find a given number by implementing a binary search tree. It requires some additional information about how to work with decisions, encouraging users to become familiar with their documentation.
+
+\subsubsection{Exercise 4 - Looping}
+Another important concept in computer programming is loops; repeating the same procedure many times. This concept can also be implemented in \gls{uml} Activities and Reactive Blocks, with the help of merge nodes.
+
+\paragraph{Task:} Create a program that generates a random number between 0 and 200 until that number is greater than 100 (big).
+
+\paragraph{Purpose:} Teach users about \emph{loops}, \emph{merge nodes}, and \emph{flow breaks}, which are timers with zero delay. An important point in this exercise is to learn that a token may only pass through an element \textbf{once} in each activity step, meaning loops must be split into separate steps for each iteration, for example by using a flow break.
+
+\paragraph{Challenge exercise:} This step has no challenge exercise.
+
+\subsubsection{Exercise 5 - User input and parallelism}
+One of the big advantages of creating software with Reactive Blocks is that it is fairly easy to implement parallelism and concurrency. This is a central concept in \gls{uml} Activities, and visualized by forking a flow. Concurrency is particularly useful for receiving user input, where one part of the application may wait for input, while another part performs a different task.
+
+\paragraph{Task:} Create a program that changes the color of a light every time you press one button, and exits when you press another. It should be possible to change the light an arbitrary number of times before exiting (even zero).
+
+\paragraph{Purpose:} Teach users about \emph{parallel branches}, \emph{forks}, and \emph{events}. This exercise should hopefully improve users' understanding of activity steps and waiting, as introduced with timers in exercise 2, and additionally adds indefinite waiting with events.
+
+\paragraph{Challenge exercise:} The challenge exercise for this step is to implement a simple game, where the user must navigate through a set of doors (full description available in Appx.~\ref{appx:tutorial}). The purpose of this challenge is to teach users to model ``larger'' systems, and combine most of the concepts learned so far. It is also meant to show users the power of being able to receive user input, and that it is possible to create programs that do not seem completely artificial, but actually do something \emph{useful}.
+
+\subsubsection{Exercise 6 - Synchronization}
+In many cases, we want to perform a task only when several concurrent tasks have been completed. In order to do this, we need some functionality that waits for all this tasks to complete before continuing. In Reactive Blocks, this is implemented with a \emph{join} node.
+
+\paragraph{Task:} Create a program that prints a message and then terminates when three buttons have been clicked (in any order).
+
+\paragraph{Purpose:} Teach users about \emph{synchronization of flows} and the \emph{join} node.
+
+\paragraph{Challenge exercise:} This step has no challenge exercise.
+
+\subsubsection{Exercise 7 - Modularization}
+One of the most important concepts in \gls{uml} Activity modeling is modularization. When dealing with large and complex programs, we generally want to separate parts of the functionality into smaller modules, making the application as a whole more orderly, and allowing reuse. However, in the context of Reactive Blocks this introduces some additional complexities like \glspl{esm}, which may arguably be the most difficult concept to grasp for Reactive Blocks novices.
+
+\paragraph{Task:} Use the \emph{Counter} block to make the \emph{CoinFlipper} block ``flip a coin'' 10 times, and then return the result.
+
+\paragraph{Purpose:} Teach users about \emph{modularization} and \emph{local blocks}. This exercise is a huge step up from the previous exercises, since it introduces users to many subtleties in Reactive Blocks related to concepts like activity steps and \glspl{esm}.
+
+\paragraph{Challenge exercise:} Since this tutorial was tested in the context of the TTM4115 course at \gls{ntnu}, students were directed to the first lab exercise of this course as the challenging part of this step. In this lab exercise, students must create their own local blocks with \glspl{esm}, and connect them to form a complete application.
 
 \section{User Testing and Feedback}
 \label{sec:tutorial_testing}
+In order to verify the usefulness of this tutorial, I attempted to conduct a user test. It is not easy to find a sufficient number willing test subjects for a test like this, but being a student assistant in the TTM4115 course at \gls{ntnu}, where the students learn about \gls{uml} modeling and additionally need to use Reactive Blocks for their semester assignment, I had a unique chance to expose my tutorial to users that actually needed it.
+
+\subsection{Testing Method}
+\label{sec:tutorial_testing_method}
+The testing method used was rather straightforward. I arranged a two hour session where the subjects could work the tutorial on their own, but I would be available for help if needed. Each test subject also received a feedback form they would anonymously fill out in the end, and hand back to me.
+
+\noindent
+I convinced the TTM4115 lecturers to let me use one of the weekly exercise sessions for the testing session, since the students needed to learn about Reactive Blocks for their assignments anyway. The students knew in advance that the particular session would be used for the tutorial, which actually led to more students showing up than usual. Initially I took this as a good sign, but it turned out many of them did not even know about the weekly exercise sessions before I showed up during a lecture and asked them to participate in my test. In addition to the testing session, the tutorial was made available online, for those who wanted to do it, but were unable to attend the session.
+
+\noindent
+Ideally, I should have conducted a standard A/B split test, where some users would complete my tutorial while others did the standard tutorials. This did not happen for several reasons, the primary reason being an overall low number of test subjects. Additionally, it would have been difficult for me to measure and compare results, because most of the test subjects were there in their own interest, and did not want to spend a lot of time on tests and surveys after having completed the tutorials. Students did have a choice in whether they wanted to do my tutorial or the standard tutorials, but because of endorsement from the course lecturers (mine ended up being the one featured on the course website), they all chose to do mine.
+
+\noindent
+During and after the testing session, I was able to gather data in three different ways:
+
+\paragraph{Feedback forms} All the students who attended the testing session were handed a feedback form. Around 20 students attended the session, but only 11 handed in the form at the end. In addition, 2 students answered the online form. The complete feedback form is available in Appx.~\ref{appx:feedback_form}.
+
+\noindent
+The feedback form consists of 7 questions. The expected number of participants for the testing session was low, so the questions were not intended to provide data for quantitative analysis, but rather attempt to identify problematic areas in the tutorial, and if anything could be improved. Since the test subjects were present in their own interest, the form was kept brief in order to not scare them away from filling it in (a too long questionnaire may require more extra effort than the participants are willing to give).
+
+\noindent
+The first question asked whether the user found the introductions useful in solving the exercises. Positive answers were expected, but only negative answers would really have been interesting, since they could indicate that the introductions are in some way flawed, such as being redundant or lacking in information.
+
+\noindent
+The second question was intended to give some indication on how the subjects thought about learning concepts like these from a game, for future reference. If people think they will enjoy learning these concepts from a game, there is a stronger incentive to explore this way of learning.
+
+\noindent
+The third question asked whether the subjects by their own judgment felt that they understood the concepts presented in each exercise, rated by a degree of understanding for each exercise. Like with the first question, the interesting results would have been negative ones.
+
+\noindent
+The fourth question asked whether the subject completed the challenge exercises, which were optional. This was meant to measure the subjects' motivation and willingness for gaining a deeper understanding of the concepts presented.
+
+\noindent
+The fifth question asked the subjects to give an indication of the challenge exercises' difficulty. This question was slightly flawed, as it should have asked for separate feedback for each exercise. However, if most of the test subjects were to answer that the challenge exercises were, for example, too easy, this would give me something to consider for improvement.
+
+\noindent
+The sixth question asked why, if not, the subject did not complete the challenge exercises. If motivation and willingness to gain a deeper understanding was lacking, it would be useful to know why, in order to attempt at providing better and clearer incentive.
+
+\noindent
+The seventh and final questions simply asked for additional comments, so that subjects could add their own thoughts.
+
+\paragraph{Observations during the session} Since I was present for help during the whole session, I was able to make various observations about what people seemed to struggle with, and which parts needed refinement.
+
+\paragraph{Observations in the following weeks} As a student assistant in the course, I was present during all the following exercise sessions, where the students had to use Reactive Blocks to complete assignments. This allowed me to make some additional observations about what they had learned from the tutorial, but I did not know which of the students had actually completed the tutorial, so this was by all counts less reliable data. It did however give me some indication about what they \emph{needed} to learn from a tutorial.
+
+\subsection{Test Results}
+\label{sec:tutorial_test_results}
+With the total number of test participants being low, a quantitative analysis of the tutorial's quality was out of the question. Instead, I use the results to look for areas with potential for improvement, or indications of what works well.
+
+\subsubsection{Test Subject Profile}
+All of the participants in the user test were students of the TTM4115 course\footnote{\url{http://www.item.ntnu.no/academics/courses/ttm4115/start}} at \gls{ntnu}. Some of the participants were 3rd year students of the 5-year MSc in Communication Technology at \gls{ntnu}, while others were students of the 2-year MSc in Telematics. All were assumed to have some knowledge of computer programming or software design. Prior to the user test, the students had a 2-hour introduction lecture for \gls{uml} Activities in Reactive Blocks.
+
+\subsubsection{Problems During the User Test Session}
+Not everything went smoothly during the testing session, which caused some delays and some additional trouble for the participants. First of all, very few of the participants came prepared, and had to go through the process of installing Eclipse and Reactive Blocks before starting the tutorial. Some had trouble with this part, and needed help from me or my co-instructor. Additionally, a license is required in order to use Reactive Blocks, and not all participants had received one. Fortunately they were able to get one during the session, but at the cost of extra delay. Finally, there were some errors in the Reactive Blocks tutorial project I had not discovered, which had to be fixed on the fly and caused some additional delay.
+
+\noindent
+The testing session was only 2 hours, and as a result of the various delays, many of the participants were not able to complete the whole tutorial. This is likely the reason why many of the participants chose to not fill out the feedback form, and even from the few who did, there were several who did not complete the whole tutorial.
+
+\subsubsection{Data from the Feedback Form}
+I received a total of 13 filled out feedback forms during and after the testing session. 
