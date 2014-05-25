@@ -33,7 +33,15 @@ If one is to learn about \gls{uml} Activities through Reactive Blocks, an additi
 \label{sec:tutorial_goals}
 This section outlines the goals I set before creating the tutorial.
 
-\paragraph{Follow the Principles of Good Tutorials} In Sect.~\ref{sec:good_practices_tutorials}, I summarized various practices for making good tutorials. I would like to follow these as much as possible, while at the same time acknowledging that I likely will not be able to cover all. The ones I consider most relevant for this tutorial are:
+\paragraph{Focus on UML Activities} If the user wants to learn how to work with Reactive Blocks, learning about \gls{uml} Activities is a start, but far from sufficient. The scope of this project is however learning modeling languages, so the tutorial should focus on the modeling aspect, and deal with topics specific to Reactive Blocks only where absolutely needed. This includes dealing with Java code; all operations required in a model should be predefined.
+
+\paragraph{Avoid Irrelevant Complexities} Reactive Blocks is a full-fledged modeling and code generation tool, with capabilities that go way beyond simply modeling \gls{uml} activities. This gives the tutorial some advantages, such as actually creating runnable code from the models created, which provides the user with relevant feedback. However, it also introduces complexities that are not as relevant when learning about \gls{uml} Activities. Ideally, Reactive Blocks should have a separate tutorial mode that handles these additional complexities, and lets the user focus on the modeling.
+
+\paragraph{Difficulty and Challenges} The exercises presented to the user should be easy enough to allow most users to complete them without much difficulty and frustration, while still communicating the lesson properly. In addition, there should be challenges, perhaps as supplementary exercises, that force the users to really think about how an element can be used, and lets them take on a different perspective for solving the problem.
+
+\paragraph{Everything in One Place} With online tutorials, users often have to change between the application window, the tutorial (often in a web browser), and any other necessary resources. This increases the short-term memory workload, since users have to remember a lot of information between the windows. One of the golden rules of \gls{ui} design is to reduce the short-term memory load~\cite{shneiderman:user_interface}, so for the tutorial, I would like to provide all the information and parts of the tutorial within Reactive Blocks, letting users find the resources they need while still being able to see the current problem. This should also help create some sense of immersion, though a standard tutorial will most likely not be nearly as immersive as a video game in any case.
+
+\paragraph{Follow the Principles of Good Tutorials} Section~\ref{sec:good_practices_tutorials} summarizes various practices for making good tutorials. I would like to follow these as much as possible, while at the same time acknowledging that I likely will not be able to cover all. The ones I consider most relevant for this tutorial are:
 
 \begin{itemize}
 	\item{\textbf{Interactivity and Active Learning:}} The tutorial should first and foremost be interactive. For each new piece of information introduced, users should be presented with exercises they have to solve.
@@ -45,14 +53,6 @@ This section outlines the goals I set before creating the tutorial.
 	\item{\textbf{Multiple Perspectives:}} \gls{uml} Activities and Reactive Blocks can be used to model many different kinds of systems, and it is important to understand their capabilities. The tutorial should provide exercises that use the various elements in different contexts and with different purposes, when applicable.
 	\item{\textbf{Freedom:}} Because the tutorial is made with Reactive Blocks, it is likely a good idea to limit the users' freedom when working with the tutorial. It is easy to get confused by the many capabilities of Eclipse and Reactive Blocks, and clicking the wrong thing can easily lead to unexpected errors. Having a separate tutorial mode is one possible way of doing this. At the same time, we do not want to restrict the users to one specific way of thinking when solving the tutorial exercises. Ideally, it should be possible to solve these exercises in more than one way, and the users should be made aware of this.
 \end{itemize}
-
-\paragraph{Focus on UML Activities} If the user wants to learn how to work with Reactive Blocks, learning about \gls{uml} Activities is a start, but far from sufficient. The scope of this project is however learning modeling languages, so the tutorial should focus on the modeling aspect, and deal with topics specific to Reactive Blocks only where absolutely needed. This includes dealing with Java code; all operations required in a model should be predefined.
-
-\paragraph{Avoid Irrelevant Complexities} Reactive Blocks is a full-fledged modeling and code generation tool, with capabilities that go way beyond simply modeling \gls{uml} activities. This gives the tutorial some advantages, such as actually creating runnable code from the models created, which provides the user with relevant feedback. However, it also introduces complexities that are not as relevant when learning about \gls{uml} Activities. Ideally, Reactive Blocks should have a separate tutorial mode that handles these additional complexities, and lets the user focus on the modeling.
-
-\paragraph{Difficulty and Challenges} The exercises presented to the user should be easy enough to allow most users to complete them without much difficulty and frustration, while still communicating the lesson properly. In addition, there should be challenges, perhaps as supplementary exercises, that force the users to really think about how an element can be used, and lets them take on a different perspective for solving the problem.
-
-\paragraph{Everything in One Place} With online tutorials, users often have to change between the application window, the tutorial (often in a web browser), and any other necessary resources. This increases the short-term memory workload, since users have to remember a lot of information between the windows. One of the golden rules of \gls{ui} design is to reduce the short-term memory load~\cite{shneiderman:user_interface}, so for the tutorial, I would like to provide all the information and parts of the tutorial within Reactive Blocks, letting users find the resources they need while still being able to see the current problem. This should also help create some sense of immersion, though a standard tutorial will most likely not be nearly as immersive as a video game in any case.
 
 \noindent
 These goals provide a basis for the design of the tutorial, and will hopefully lead to a tutorial that introduces \gls{uml} Activities to novices in a better way than the existing tutorials described in Sect.~\ref{sec:existing_tutorials}.
@@ -67,7 +67,7 @@ The tutorial design consists of three parts:
 	\item An exercise for each step in the tutorial, implemented in Reactive Blocks. Some steps additionally have a challenge exercise.
 \end{itemize}
 
-\subsection{Reactive Blocks Tutorial Mode}
+\subsection{Proposal for a Reactive Blocks Tutorial Mode}
 \label{sec:reactive_blocks_tutorial_mode}
 The first part of the tutorial design is a proposal for a \emph{tutorial mode} in Reactive Blocks. Figure~\ref{fig:tutorial_mode} displays a visual mock-up of the proposed \gls{ui} design for the tutorial mode. In the middle, we see the familiar Reactive Blocks modeling canvas (10), with some elements in place for demonstrative purposes. Surrounding the modeling canvas, we see various new elements that will be explained below.
 
