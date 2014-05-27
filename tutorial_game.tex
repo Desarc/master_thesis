@@ -4,6 +4,9 @@ As the second part of my own work, I designed and implemented a prototype for an
 
 \section{Motivation}
 \label{sec:game_motivation}
+The target audience for the game is the same as for the tutorial, and described in Sect.~\ref{sec:tutorial_target_audience}.
+TODO
+
 
 \subsection{Goals}
 \label{sec:game_goals}
@@ -23,14 +26,7 @@ When developing the concept of the game, a few points were considered. First of 
 
 \subsection{The Final Concept}
 \label{sec:game_final_concept}
-With the above design points in mind, I settled on a two-dimensional maze-navigating game, where the player controls a character or set of characters through operations and logic in Reactive Blocks. The main character, Malcolm, must perform one or more goals to complete the level, such as gathering stars. In order to get to these stars however, Malcolm must perform some other tasks, such as gathering keys, or invoke the assistance of other characters in the game. Figure~\ref{fig:level3map} shows level 3 of the game, where Malcolm must navigate around the maze and gather all four stars.
-
-\begin{figure}[htp]
-	\centering
-	\includegraphics[scale=0.60]{level3map}
-	\caption[Level 3 of the Reactive Blocks game]{Level 3 of the Reactive Blocks game. Malcolm, the character on the left, must move around the maze and collect all four stars in order to complete the level.}
-	\label{fig:level3map}
-\end{figure}
+With the above design points in mind, I settled on a two-dimensional maze-navigating game, where the player controls a character or set of characters through operations and logic in Reactive Blocks. The main character, Malcolm, must perform one or more goals to complete the level, such as gathering stars. In order to get to these stars however, Malcolm must perform some other tasks, such as gathering keys, or invoke the assistance of other characters in the game.
 
 \noindent
 This concept was chosen for the following reasons:
@@ -57,13 +53,13 @@ Designing the tutorial window presented some challenges of its own. The window n
 After some consideration, I settled on a 600x800 pixels window, which should fit pretty good with the Reactive Blocks modeling canvas on screen resolutions down to 1280x800. When the resolution becomes smaller than this, there is little room for anything but the Eclipse window anyway. Given more time for development, it would likely be better to have a variable size window depending on the available screen resolution, but for now, this size is fixed.
 
 \noindent
-Figure~\ref{fig:level1_intro} shows the introduction window for level 1. The layout is the same for all levels, but the content varies. At the top is simply the title of the level, with a ``tagline'' giving a short description of what the current level is about. Below the title is a slide show, which the player may go through to get a quick introduction of the concepts taught by, and the goals of, the current level. These introductions are generally kept short, except for in level 1, where the whole game must be introduced in additional to all the most basic concepts. The player controls the slide show with the arrow and play/pause buttons.
+Figure~\ref{fig:level1_intro_mockup} shows a mock-up of the introduction window design. The layout is the same for all levels, but the content varies. At the top is simply the title of the level, with a ``tagline'' giving a short description of what the current level is about. Below the title is a slide show, which the player may go through to get a quick introduction of the concepts taught by, and the goals of, the current level. These introductions are generally kept short, except for in level 1, where the whole game must be introduced in additional to all the most basic concepts. The player controls the slide show with the arrow and play/pause buttons.
 
 \begin{figure}[htp]
 	\centering
-	\includegraphics[scale=0.50]{level1_intro}
-	\caption[Introduction window for level 1]{The introduction window for level 1, with the introduction slide show at the top, followed by the goals for this level, a button for tips, the level map, and some buttons for retrieving additional information about the concepts presented.}
-	\label{fig:level1_intro}
+	\includegraphics[scale=0.50]{level1_intro_mockup}
+	\caption[Introduction window mock-up]{The introduction window design, with the introduction slide show at the top, followed by the goals for this level, a button for tips, the level map, and some buttons for retrieving additional information about the concepts presented.}
+	\label{fig:level1_intro_mockup}
 \end{figure}
 
 \noindent
@@ -72,63 +68,323 @@ Below the slide show, we see a list of the goals for the current level. The goal
 \noindent
 Finally, the buttons on the right side of the window represent the \emph{help-on-demand} information that is not visible by default. The \emph{Tips} button provides some tips that are good to know either for solving the current level, or for learning about modeling in general. The hope is that if players get stuck or are unsure about how to proceed, they will see and click this button in an attempt to find help. The \emph{Tell me more about...} buttons provide more detailed information about each concept presented in the current level, available for players who need more information in order to understand the concepts sufficiently, or simply want to learn more.
 
-\noindent
-
-
-
-
-
 \subsection{Game Levels}
 \label{sec:game_levels}
-For the first version of the prototype, only 5 levels were designed and implemented. This was because I wanted to test the prototype with a few users as soon as possible, in order to uncover any serious flaws with the \gls{ui} or the way the introductions were presented as early as possible. The levels for the first version of the prototype are briefly described below.
+For the first version of the prototype, only 5 levels were designed and implemented. This was because I wanted to test the prototype with a few users as soon as possible, in order to uncover any serious flaws with the \gls{ui} or the way the introductions were presented as early as possible. 
+
+\noindent
+The prototype levels roughly follow the teaching order described in Sect.~\ref{sec:teaching_order}. The first version of the prototype covers steps 1 through 3, with level 5 introducing part of step 4. The game levels are briefly described below.
 
 \subsubsection{Level 1}
+Figure~\ref{fig:level1map} displays the map for level 1. The purpose of this level is to introduce the game concept, the main character Malcolm, and the most basic modeling concepts in Reactive Blocks. The goal is pretty much identical to exercise 1 of the tutorial (create a \emph{Hello World!} program), but the game additionally visualizes this task through the game character. The player is provided with the \emph{sayHello} operation, which makes a speech bubble appear next to the character on the level map.
+
+\begin{figure}[htp]
+	\centering
+	\includegraphics[scale=0.40]{level1map}
+	\caption[Level 1 of the Reactive Blocks game]{Level 1 of the Reactive Blocks game. The player must make the character speak, which makes a speech bubble appear beside him.}
+	\label{fig:level1map}
+\end{figure}
+
+\noindent
+\textbf{Goal:} Make the game character speak the famous words ``Hello world!''
+
+\noindent
+\textbf{Concepts introduced:} Activity Steps, Edges, Initial Nodes, Operations, and Activity Final
+
+\noindent
+\textbf{Operations provided:} sayHello
 
 \subsubsection{Level 2}
+Figure~\ref{fig:level2map} displays the map for level 2. The purpose of this level is to introduce the player to moving the game character around, and learn about timing delay with \emph{timers}. The goal is to make the character start moving forward, and then add correct timing so that the character will stop moving on top of the star, allowing him to pick it up. The time it takes to move from the starting position to the star is directly proportional to the distance, as it takes 500 milliseconds to cross one tile.
+
+\begin{figure}[htp]
+	\centering
+	\includegraphics[scale=0.60]{level2map}
+	\caption[Level 2 of the Reactive Blocks game]{Level 2 of the Reactive Blocks game. The player must make the character move 6 tiles forward by timing the movement correctly, and then pick up the star.}
+	\label{fig:level2map}
+\end{figure}
+
+\noindent
+\textbf{Goal:} Make the game character pick up the star
+
+\noindent
+\textbf{Concepts introduced:} Moving forward, Timers
+
+\noindent
+\textbf{Operations provided:} moveForward, stop, pickUp
 
 \subsubsection{Level 3}
+Figure~\ref{fig:level3map} displays the map for level 3. Modeling wise, this level does not introduce any new concepts, but lets the player become more familiar with timers, and use operations to also change the direction of the game character. Level 3 is a follow-up challenge for level 2.
+
+\begin{figure}[htp]
+	\centering
+	\includegraphics[scale=0.50]{level3map}
+	\caption[Level 3 of the Reactive Blocks game]{Level 3 of the Reactive Blocks game. The player must move the character around the maze, and pick up all the stars.}
+	\label{fig:level3map}
+\end{figure}
+
+\noindent
+\textbf{Goal:} Make the game character pick up all four stars
+
+\noindent
+\textbf{Concepts introduced:} Moving in different directions
+
+\noindent
+\textbf{Operations provided:} moveForward, stop, pickUp, turnLeft, turnRight, turnAround
 
 \subsubsection{Level 4}
+Figure~\ref{fig:level4map} displays the map for level 4. The purpose of this level is to introduce the player to \emph{decisions}, \emph{alternate branches}, and handling things that may not be known in advance. Players also learn to pass data from operations to decisions, allowing \emph{guards} to be set on outgoing edges.
 
-\subsubsection{Level 5} 
+\begin{figure}[htp]
+	\centering
+	\includegraphics[scale=0.45]{level4map}
+	\caption[Level 4 of the Reactive Blocks game]{Level 4 of the Reactive Blocks game. The player must open the chest to reveal an either blue or yellow key, which allows one lock to be unlocked. The character can then pass through to the star.}
+	\label{fig:level4map}
+\end{figure}
+
+\noindent
+\textbf{Goal:} Open the chest to find a key, unlock the lock matching the key, and pick up the star
+
+\noindent
+\textbf{Concepts introduced:} Alternate branches, Decisions, Object flows
+
+\noindent
+\textbf{Operations provided:} moveForward, stop, pickUp, turnLeft, turnRight, turnAround, interact
+
+\subsubsection{Level 5}
+With the introduction of alternate branches, activity diagrams can become large and messy. Logic has to be (re)created for each branch, and if more branches follow, we quickly see an explosion of the decision tree. Fortunately, there may be ways of simplifying this, depending on what happens in each branch.
+
+\noindent
+Figure~\ref{fig:level5map} displays the map for level 5. There are 4 locks with different colors, meaning that there are 4 possible branches/paths after the chest has been opened. However, the final part of each path is identical, meaning we can use the same sequence to complete the logic. The purpose of this level is to introduce \emph{reuse} to players, by using the same sequence to complete all alternate branches with one or more \emph{merge} nodes.
+
+\begin{figure}[htp]
+	\centering
+	\includegraphics[scale=0.50]{level5map}
+	\caption[Level 5 of the Reactive Blocks game]{Level 5 of the Reactive Blocks game. The player must open the chest to reveal an either green, blue, orange, or yellow key, which allows one lock to be unlocked. The character can then pass through to the star.}
+	\label{fig:level5map}
+\end{figure}
+
+\noindent
+\textbf{Goal:} Open the chest to find a key, unlock the lock matching the key, and pick up the star
+
+\noindent
+\textbf{Concepts introduced:} Reuse of sequences, Merge nodes
+
+\noindent
+\textbf{Operations provided:} moveForward, stop, pickUp, turnLeft, turnRight, turnAround, interact
 
 \section{Implementation}
 \label{sec:game_implementation}
+With the game concept in place, it was time to start working on the prototype implementation. Since Reactive Blocks is Java-based, the natural choice was to start with a Java framework for creating games. I settled for \emph{libGDX},\footnote{\url{http://libgdx.badlogicgames.com/}} a Java game development framework licensed under Apache 2.0.
 
+\noindent
+Even with a framework as a starting point, implementing the game prototype required considerable work. The game itself was implemented as a JAR to be included with a Reactive Blocks project containing blocks for each level. Graphics are based on or retrieved from various collections of free graphics on the web. For the interested reader, both the full source code\footnote{\url{https://github.com/Desarc/reactive-blocks-tutorials/tree/master/no.ntnu.oyvinric.tutorialgame}} and the Reactive Blocks project\footnote{\url{https://github.com/Desarc/tutorial-game}} is available on GitHub.
 
-\section{User Testing and Feedback}
+\noindent
+The result is a game prototype with 5 levels, and an introduction part for each level. Below, each component is described in more detail, using level 4 as an example.
+
+\paragraph{The Game Interface}
+Figure~\ref{fig:level4} shows the interface of the game on a wide screen (1920x1080 pixels), with the Eclipse window running a Reactive Blocks perspective on the left, and the introduction window on the right. The player starts playing the game by ``building and running'' the \emph{Level1\_Introduction} block, which makes the introduction window pop up. The player can then open the \emph{Level1} block and start modeling, by right-clicking the empty canvas and adding elements. The required operations are already implemented, referencing the JAR with the game logic, and the player can simply add them to the model. An example solution for level 4 is displayer in Fig.~\ref{fig:level4_solution}. When the model is complete, it is time to ``build and run'' the \emph{Level1} block to see if the solution is correct. If this is the case, the player moves on to \emph{Level2\_Introduction} and repeats the process.
+
+\begin{figure}[htp]
+	\centering
+	\includegraphics[scale=0.25]{level4}
+	\caption[The Reactive Blocks game interface]{The Reactive Blocks game interface. On the right side is a regular Eclipse window running the Reactive Blocks perspective with the block for level 4 open. On the right side is the introduction window for level 4.}
+	\label{fig:level4}
+\end{figure}
+
+\begin{figure}[htp]
+	\centering
+	\includegraphics[scale=0.50]{level4_solution}
+	\caption[Level 4 solution]{An example solution for level 4 of the Reactive Blocks game.}
+	\label{fig:level4_solution}
+\end{figure}
+
+\noindent
+The introduction window is described in more detail in Sect.~\ref{sec:game_tutorial}, and matches the design mock-up. Like the rest of the game, it is implemented within the \emph{libGDX} framework.
+
+\paragraph{The Game Window}
+Figure~\ref{fig:game_window} shows the main game window after level 4 has been completed. This window is opened when the player ``builds and runs'' the \emph{Level4} block after completing the model, and assuming the model is correct, displays the desired behavior of the game character.
+
+\begin{figure}[htp]
+	\centering
+	\includegraphics[scale=0.45]{game_window}
+	\caption[Reactive Blocks game window]{The game window for the Reactive Blocks game after level 4 has been completed. The level map is displayer on the left, while the right side contains a \gls{hud} informing the user about the current status of the level.}
+	\label{fig:game_window}
+\end{figure}
+
+\noindent
+The main part of the window is the level map, where we can see the game character moving around and interacting with various objects. On the right side is a small \gls{hud}, which displays the current status of the level, such as how many stars have been picked up, how many need to be picked up in total, and which keys have been found.
+
+\section{Usability Testing of the Game}
 \label{sec:game_testing}
+With a prototype of the game ready, it was time to do some usability testing to see how players are able to work with the \gls{ui}, and grasp the concepts presented sufficiently to complete the levels without help. Suitable test subjects were even harder to come by than with the tutorial in Ch.~\ref{ch:reactive_blocks_tutorial}, but I was able to recruit three volunteers. Two of the test subjects match part of the target audience, having some previous experience with programming and system engineering, while the third subject offers a slightly different perspective, being an experienced gamer.
 
+\noindent
+The primary goal for the usability test is to uncover issues about the game that may decrease the quality of the learning experience. Such issues may include poor affordance in the game \gls{ui}, or insufficient, missing, or confusing information about concepts.
 
-\subsection{Subject 1}
+\subsection{Testing Method and Collection of Results}
+\label{sec:game_testing_method}
+The testing session is carried out as a fairly standard discount usability test~\cite{nielsen:discount_usability}, with the significant difference that a functional prototype is used instead of a simple mock-up. The user is presented with some scenarios to go through, in this case starting with instructions on how to set up the game, followed by a challenge to solve for each level. While working on the tasks, the user is encouraged to think aloud in order to give the supervisor additional information about their choices.
+
+\noindent
+Supervisor intervention is kept to a minimum. The supervisor will only intervene when a problem with the game has been clearly established, and there is no point in watching the user struggling further.
+
+\noindent
+In an attempt to measure the user's understanding of the concepts presented in each level, the users are asked to fill in a feedback form (Appx.~\ref{appx:game_feedback_form}) rating their own understanding of these concepts after the level has been completed. The purpose of the questions in this form is to get an impression on how difficult the game is to understand, if there is anything missing from the introductions, and if the users feel that they have understood the concepts.
+
+\subsection{Test Subject 1}
 \label{sec:game_testing_subject1}
+Test subject 1 is a 25 year old male with a university degree in petroleum engineering. The subject has some previous programming experience with numerical computations in MATLAB or Fortran, but no experience with system engineering. He is however a very experienced player of various video games within different genres.
 
-\subsubsection{Profile}
+\noindent
+While observing test subject 1 playing the game, I discovered both some problems with the game \gls{ui} and some bugs that needed fixing. I will not go into details about the bugs, but attempt to highlight some of the \gls{ui} issues. Subject 1 spent a total of 83 minutes on the 5 levels of the game.
 
-\subsubsection{Observations}
+\noindent
+The first thing I noticed was that the subject had trouble following the slide show, which would start automatically and change slide every 10 seconds. It is possible that having a slide show that runs automatically is not a very good idea, considering that users read and grasp concepts at different speeds.
 
-\subsubsection{Feedback}
+\noindent
+Throughout the whole game experience, the subject consistently had trouble navigating the Reactive Blocks \gls{ui}, making some tasks unnecessary difficult to complete, and slowing down the overall progress. This includes things like trouble finding the correct elements or trying to connect edges to nothing. At one point the subject accidentally double-clicked an operation, bringing up the Java code for the current level, which added some confusion.
 
+\noindent
+At level 1, the subject thought that an Activity Final node was required to complete the program. This was a completely logical observation, however unfortunate, since adding an Activity Final node to the application will terminate the game before the user can see that the level is completed. The tip that said an Activity Final node was not needed, was apparently not sufficient, as the subject eventually gave up on understanding what the problem was, and asked for help.
 
-\subsection{Subject 2}
+\noindent
+In more than one case, the subject was able to complete a level without having correct timing. The game character would just keep walking into a wall until finally the timer expired, and a star was picked up.
+
+\noindent
+On level 4, the subject struggled with understanding decisions and guards, particularly which data type should be used. String values \emph{blue} and \emph{yellow} were mentioned in the introduction, but the subject believed the guards should be set to \emph{true} for blue, and \emph{false} for yellow. The subject was also confused by the option of adding an \emph{else} branch from decisions, which was not really necessary in this case. Additionally, it was not clear to the subject where the data would come from, and he started experimenting with \emph{variables}. In the end, the subject needed some help with understanding which data type should be set on the guards.
+
+\noindent
+While struggling with level 4, the subject started actively looking for ways to discover what the problem was, and discovered the \emph{analyze} functionality of Reactive Blocks. This could have helped him solve it, but he did not understand the error messages presented.
+
+\noindent
+After the subject had understood how to set guards from decisions in level 4, he noticed that the branches could be merged for the final part, which is the learning goal for level 5. Since merge nodes had not yet been introduced, the subject thought the \emph{join} node would be the correct choice, which resulted in some error messages the subject did not understand (in fact, these error messages did not really give any real information).
+
+\noindent
+When working on level 5, the subject tried to add multiple outgoing edges from an operation, and set guards on these, without adding a decision node in between. The subject also got confused by the \emph{connector merge} node in Reactive Blocks, as he tried to use this node instead of the regular \emph{merge} node, which he did not discover until later. Finally, the key/lock value corresponding to \emph{red} actually look orange within the game, which added some confusion.
+
+\noindent
+Each time the subject would get stuck or have trouble understanding a concept, he would check the tips for that level, or the help-on-demand resources for that concept. The subject needed extra information on levels 1, 4 and 5, but was able to complete 2 and 3 with the information from the introduction alone. Levels 2 and 3 were additionally completed on the first try, while the other levels required some trial and error.
+
+\subsection{Test Subject 2}
 \label{sec:game_testing_subject2}
+Test subject 2 is a 24 year old male, working on a university degree in Computer Networking and Signal Processing. The subject has some previous programming experience from various university courses, ranging from basic object orientation to microcontroller programming, and some \gls{hci} implementation.
 
-\subsubsection{Profile}
+\noindent
+Test subject 2's game sessions was also far from flawless. Subject 2 encountered many of the same problems with the game as subject 1, in addition to some new issues. Subject 2 actually uncovered more bugs during his session, because his approach to solving the levels touched more edge cases. Subject 2 spent a total of 66 minutes on the 5 levels of the game.
 
-\subsubsection{Observations}
+\noindent
+First of all, subject 2 struggled with many of the same things related to the Reactive Blocks \gls{ui}. The difference was that subject 2 was familiar with some other software development tools, and thus had some expectations that were not met with the \gls{ui}. However, because of the initial awkwardness and annoyance experienced when working with the Reactive Blocks \gls{ui}, the subject later discovered some actions that would simplify the modeling process on his own, such as duplicating elements or sequences of elements.
 
-\subsubsection{Feedback}
+\noindent
+Like test subject 1, subject 2 also experienced confusion about the \emph{activity final} node. He commented that since the element had been introduced as a way of ``finishing'' a program, it was implied that this element should be the final part of all programs, and was actually \emph{required} to end an activity step.
 
+\noindent
+Test subject 2 additionally experienced some confusion about the goals for some levels, such as believing he had to return to the starting point in order to complete.
 
-\subsection{Subject 3}
+\noindent
+Unlike subject 1, subject 2 was able to better understand decisions and guards, and was thus able to complete levels 4 and 5 more easily. However, since the \emph{object flow} was introduced as an individual concept, he believed this was an element separate from control flow edges, and spent quite some time looking for it.
+
+\noindent
+Likely due to his previous programming experience, the subject attempted to use the logical operation \emph{OR} to simplify the alternate branches in level 5. This is unfortunately not possible, as guards in Reactive Blocks only accept \emph{literal} values.
+
+\noindent
+Unlike subject 1, subject 2 was able to create the correct logic on his first try for all levels (disregarding the use of \emph{activity final} in level 1). Subject 2 also actively used the \emph{tips} functionality to find help, but rarely needed to check the help-on-demand resources.
+
+\noindent
+Subject 2 also mistook the red key/lock pair to be orange.
+
+\subsection{Test Subject 3}
 \label{sec:game_testing_subject3}
+Test subject 3 is a 24 year old male, with roughly the same background as test subject 2.
 
+\noindent
+Like subject 2, subject 3 also uncovered quite a few bugs during his session, also some new ones. Otherwise, the issues encountered were largely the same as with subjects 1 and 2. Subject 3 spent a total of 74 minutes on the 5 levels of the game.
 
-\subsubsection{Profile}
+\noindent
+With many of the same expectations for the Reactive Blocks \gls{ui} as subject 2, subject 3 also faced the same kind of awkwardness and annoyance when learning to work with it. Having already established that this was an issue, I gave the subject some tips on working with the \gls{ui} in order to lessen his frustration.
 
-\subsubsection{Observations}
+\noindent
+Like the other two subjects, subject 3 found it natural to include an \emph{activity final} node to complete the program. He also explained that he did not realize the various parts of an activity step were performed without intermediate delay, and thus expected to see the result of completing the level even if the program was terminated (after a delay).
 
-\subsubsection{Feedback}
+\noindent
+Like subject 1, subject 3 was confused about how to add guards to decisions, not realizing he was supposed to first create outgoing edges. He attempted to work around this by using the \emph{Add else branch} option in Reactive Blocks, but this proved a more confusing approach, as it created \emph{control flow} edges which may only have \emph{else} guards.
+
+\noindent
+Unlike the other subjects, subject 3 preferred to solve some of the levels incrementally, particularly level 3 and 5, by completing part of the logic and checking if everything was correct so far. Subject 3 also spent more time reviewing \emph{tips} and help-on-demand sources than the other subjects. 
+
+\noindent
+Subject 3 also mistook the red key/lock pair to be orange.
+
+\subsection{Data from the Feedback Forms}
+\label{sec:game_feedback_data}
+In addition to my observations, each test subject filled in the feedback form included in Appx.~\ref{appx:game_feedback_form}. This section summarizes the data gathered from these forms.
+
+\noindent
+The first question asked, for each level, if the introduction part gave enough information to solve that level. All three subjects answered consistently \emph{yes} for all levels, except subject 2 for level 1. Subject 2 further commented that he thought the introduction part gave misleading information about the \emph{activity final} node, causing his solution to level 1 to sort of be both right and wrong at the same time. It was difficult to understand what was going wrong, and subject 2 eventually had to ask for help from the supervisor. As we can see from my observations in the previous sections, this actually also happened with the two other subjects. Since subjects 1 and 3 answered that the introduction part gave them enough despite their trouble, they may have considered this as an oversight of their own, rather than missing information.
+
+\noindent
+Question 3 asked the subjects to rate how difficult they found each level to be, and the results are displayed in Tab.~\ref{tab:subject_difficulty}. From the table, we see that all three subjects found levels 2 and 3 to be easier than the others. The two subjects with more diverse programming backgrounds, subject 2 and 3, also consistently experienced each level as being easier than subject 1.
+
+\begin{table}[htp]
+	\centering
+	\begin{tabulary}{\textwidth}{| C | C | C | C |}
+		\hline
+		\textbf{Level} & \textbf{Subject 1} & \textbf{Subject 2} & \textbf{Subject 3} \\
+		\hline
+		1 & Difficult & OK & OK \\
+		\hline
+		2 & OK & Easy & Easy \\
+		\hline
+		3 & OK & Easy & Easy \\
+		\hline
+		4 & Difficult & OK & OK \\
+		\hline
+		5 & Difficult & Easy & Easy \\
+		\hline
+	\end{tabulary}
+	\caption[Test Subject 1 Perceived Difficulty]{The \emph{perceived level of difficulty} for each level and each test subject. Available options were in ascending order \emph{Too Easy}, \emph{Easy}, \emph{OK}, \emph{Difficult}, and \emph{Too Difficult}.}
+	\label{tab:subject_difficulty}
+\end{table}
+
+\noindent
+Question 4 asked the subjects to rate their own level of understanding for each concept presented, and the results are displayed in Tab.~\ref{tab:subject_understanding}. There is a lot of variation, but we should notice that none of the subjects felt they gained a \emph{complete} understanding of \emph{activity steps}, \emph{activity final}, and \emph{timers}. Subjects 1 and 3 actually did not rate their own understanding as complete for any of the concepts presented.
+
+\begin{table}[htp]
+	\centering
+	\begin{tabulary}{\textwidth}{| C | C | C | C |}
+		\hline
+		\textbf{Concept} & \textbf{Subject 1} & \textbf{Subject 2} & \textbf{Subject 3} \\
+		\hline
+		Activity Steps & Partly & Mostly & Mostly\\
+		\hline
+		Edges & Mostly & Completely & Partly \\
+		\hline
+		Operations & Mostly & Completely & Mostly \\
+		\hline
+		Initial Nodes & Mostly & Completely & Mostly \\
+		\hline
+		Activity Final & Partly & Not at all & Mostly \\
+		\hline
+		Timers & Mostly & Mostly & Mostly \\
+		\hline
+		Decisions & Partly & Completely & Mostly \\
+		\hline
+		Object Flow & Mostly & Completely & Mostly \\
+		\hline
+		Merge & Mostly & Completely & Mostly \\
+		\hline
+	\end{tabulary}
+	\caption[Test Subject 1 Levels of Understanding]{The self-rated \emph{level of understanding} for various Reactive Blocks elements by each test subject. Available options were in ascending order \emph{Not at all}, \emph{Partly}, \emph{Mostly}, and \emph{Completely}.}
+	\label{tab:subject_understanding}
+\end{table}
+
+\noindent
+The fifth question asked, for each level, whether the subjects thought they would be able to use the concepts they had just learned about to solve other problems. All three subjects consistently answered \emph{yes} to this question for all levels.
+
+\noindent
+In addition to the question asked for each level, there were some final questions. The first question asked whether the subjects \emph{enjoyed} playing the game, to which subjects 1 and 3 answered \emph{yes}, and subject 2 answered \emph{a little}. As a follow up, they were asked to comment on what they did or did not like. While subject 1 left this field empty, subject 2 mentioned that it was a good way of learning concepts, and that it gave him a sense of achievement. Subject 3 mentioned that the \gls{ui} had been somewhat annoying to work it. Finally, the subjects were asked if they would prefer the game as a way to learn about \gls{uml} Activities and Reactive Blocks, compared to other options. All three subjects answered in favor of the game.
 
 \subsection{A Side-note on an Informal Experiment}
 \label{sec:game_testing_sidenote}
@@ -150,5 +406,6 @@ I should also include that while my girlfriend was able to understand the concep
 While I found this experiment to be quite interesting, its informal nature prevents me from drawing any real conclusions. It is likely that a large part of my girlfriend's motivation was to support my thesis work, as opposed to wanting to learn about \gls{uml} Activities. Also, despite not having any interest in working with computer-related topics, she could simply be the type of person who has a knack for understanding these things (without even knowing it). All in all, much is left to speculation, but the experiment provides an interesting anecdote for the potential of educational games.
 
 \section{Evaluation of the Tutorial Game}
+\label{sec:game_evaluation}
 
 
