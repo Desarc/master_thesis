@@ -24,14 +24,17 @@ The official \gls{uml} website\footnote{\url{http://www.uml.org/\#Links-Tutorial
 A quick Google-search lists some additional tutorial sources, but most follow a documentation-like approach similar to the one from Sparx Systems listed above. In short, there is a real lack of interactive \gls{uml} tutorials, where the user gets to learn a few concepts at a time, and to use and understand these concepts in the context of examples and exercises.
 
 \subsubsection{The Reactive Blocks Tutorials}
-Reactive Blocks has a set of tutorial exercises available to new users of the software.\footnote{\url{http://reference.bitreactive.com/tutorials/} (only available to registered users)} These tutorials are created in an exercise-like manner, where the user is presented with some new information, and must use this in examples. However, the tutorials are mostly focused around the capabilities of the software and how to use it, rather than teaching good modeling. Previous familiarity with \gls{uml} Activities seems to be assumed.
+Reactive Blocks has a set of tutorial exercises available to new users of the software.\footnote{\url{http://reference.bitreactive.com/tutorials/} (registered users only)} These tutorials are created in an exercise-like manner, where the user is presented with some new information, and must use this in examples. However, the tutorials are mostly focused around the capabilities of the software and how to use it, rather than teaching good modeling. Previous familiarity with \gls{uml} Activities seems to be assumed.
 
 \noindent
 If one is to learn about \gls{uml} Activities through Reactive Blocks, an additional set of tutorials must likely be made, with primary focus on the modeling aspect. In addition, like with the existing tutorials, it is likely that some information about using the software must be included.
 
 \subsection{The Target Audience}
-\label{sec:tutorial_target_audience}
-TODO
+\label{sec:target_audience}
+Making a tutorial that works well for \emph{anyone} is difficult, maybe even impossible. The interest for a tutorial like this is also likely to be limited to a relatively small number of people, more specifically those who want to learn how to use \gls{uml} Activities, or even Reactive Blocks, to improve or simplify their software development process. This provides a rough frame for our target audience.
+
+\noindent
+It is important to note that while people in the target audience likely have similar goals, their background and previous knowledge may vary. Users may be complete beginners in the field of programming and software development, experts simply seeking to add another tool to their process, or anything in between. The whole range of backgrounds and previous knowledge should be taken into consideration when designing and implementing the tutorial.
 
 \subsection{Goals}
 \label{sec:tutorial_goals}
@@ -77,8 +80,8 @@ The first part of the tutorial design is a proposal for a \emph{tutorial mode} i
 
 \begin{figure}[htp]
 	\centering
-	\includegraphics[scale=0.45]{tutorial_mode}
-	\caption[Reactive Blocks Tutorial Mode Design]{A visual mock-up of the UI presented to users when running Reactive Blocks in the suggested tutorial mode. The regular modeling canvas is shown in the middle (10), surrounded by utility buttons and three information windows.}
+	\includegraphics[width=\textwidth]{tutorial_mode}
+	\caption[Reactive Blocks tutorial mode design]{A visual mock-up of the UI presented to users when running Reactive Blocks in the suggested tutorial mode. The regular modeling canvas is shown in the middle (10), surrounded by utility buttons and three information windows.}
 	\label{fig:tutorial_mode}
 \end{figure}
 
@@ -292,17 +295,38 @@ Not everything went smoothly during the testing session, which caused some delay
 The testing session was only 2 hours, and as a result of the various delays, many of the participants were not able to complete the whole tutorial. This is likely the reason why many of the participants chose to not fill out the feedback form, and even from the few who did, there were several who did not complete the whole tutorial.
 
 \subsubsection{Data from the Feedback Form}
-I received a total of 13 filled out feedback forms during and after the testing session. The complete results are included in Appx.~\ref{appx:tutorial_test_data}. This section attempts to highlight the information we can infer from these results.
+I received a total of 13 filled out feedback forms during and after the testing session. This section summarizes the answers, and attempts to highlight the information we can infer from these results.
 
-\paragraph{Question 1:} Figure~\ref{fig:feedback_form_q1} displays the results from question 1: \emph{``Did you find the provided information about elements and concepts useful?''}. All participants answered that they found the provided information about elements and concepts to be useful. This tells us that at least there is nothing that is apparently wrong with the introductions to the exercises, however it does not mean they are necessarily very good.
+\paragraph{Question 1:} Figure~\ref{fig:feedback_form_q12} displays the results from question 1: \emph{``Did you find the provided information about elements and concepts useful?''}. All participants answered that they found the provided information about elements and concepts to be useful. This tells us that at least there is nothing that is apparently wrong with the introductions to the exercises, however it does not necessarily mean they are very good.
 
-\paragraph{Question 2:} Figure~\ref{fig:feedback_form_q2} displays the results from question 2: \emph{``Do you think you would find the exercises more interesting if they were designed as a game, where you had to create a program to complete each level?''}. Here the answers varied a little more, with 2 participants answering that they would not be interested in learning these concepts from a game, while 5 answered that it would depend on the type of game. The remaining 6 gave positive answers. In hindsight, it would have been interesting to know which types of games the 5 participants were interested in, but this is also the kind of question one might not know the answer to without seeing some examples. Overall, the results indicate that a well-designed game may improve motivation for at least some of the students. For the remaining, it is hard to say whether the game approach will reduce motivation or simply leave it unchanged.
+\paragraph{Question 2:} Figure~\ref{fig:feedback_form_q12} also displays the results from question 2: \emph{``Do you think you would find the exercises more interesting if they were designed as a game, where you had to create a program to complete each level?''}. Here the answers varied a little more, with 2 participants answering that they would not be interested in learning these concepts from a game, while 5 answered that it would depend on the type of game. The remaining 6 gave positive answers. In hindsight, it would have been interesting to know which types of games the 5 participants were interested in, but this is also the kind of question one might not know the answer to without seeing some examples. Overall, the results indicate that a well-designed game may improve motivation for at least some of the students. For the remaining, it is hard to say whether the game approach will reduce motivation or simply leave it unchanged.
+
+\begin{figure}[htp]
+	\subfloat{\includegraphics[width=.49\textwidth]{feedback_form_q1}}
+	\subfloat{\includegraphics[width=.49\textwidth]{feedback_form_q2}}
+	\caption[Results from feedback form questions 1 and 2]{Results from questions 1 (left) and 2 (right) of the feedback form (Appx.~\ref{appx:feedback_form}). The total number of students was 13.}
+	\label{fig:feedback_form_q12}
+\end{figure}
 
 \paragraph{Question 3:} Figure~\ref{fig:feedback_form_q3} displays the results from question 3: \emph{``Did you feel that you understood the concepts presented in the exercise?''}. The results are displayed as a separate graph per exercise, where the participants had to rate their own understanding. The most important point to notice from these results is that more than half of the participants did not have time to complete exercise 5 through 7, and 3 of these also did not complete exercise 4. It is possible that these are students in the ``lower end of the bell curve'', who have more difficulty and take more time in grasping the concepts presented in the exercise. Looking at the results for exercise 1 and 2, all or nearly all of the participants felt that they completely understood the concepts presented. As we move on to exercise 3, some of the participants are beginning to reduce their perceived level of understanding to ``pretty good''. From the participants who completed exercise 4 through 6, all measured their own understanding to be complete, but in exercise 7 the results are slightly worse. It appears that the most challenging exercises are 3 and 7, and these may have to be revised and improved.
 
-\paragraph{Question 4:} Figure~\ref{fig:feedback_form_q4} displays the results from question 4: \emph{``Did you complete any of the challenge exercises?''}. The graph shows that most of the participants chose to complete challenge exercises 1 and 2, half completed exercise 3, and none completed exercises 5 and 7. Comparing this with the results from question 3, we see that all the participants who were able to complete exercises 4 through 7 had also completed challenge exercise 3, and the rest likely did not have time. In any case, the participants seemed motivated for completing the challenge exercises and gaining additional understanding of the concepts presented, but were constrained by time. Challenge exercises 5 and 7 were quite extensive, and would likely have required another 2-hour session.
+\begin{figure}[htp]
+	\centering
+	\includegraphics[scale=0.62]{feedback_form_q3}
+	\caption[Results from feedback form question 3]{Results per exercise from question 3 of the feedback form (Appx.~\ref{appx:feedback_form}). The value on the y-axis for all graphs is the number of students who chose that answer. The total number of students was 13.}
+	\label{fig:feedback_form_q3}
+\end{figure}
 
-\paragraph{Question 5:} Figure~\ref{fig:feedback_form_q5} displays the results from question 5, which asked the participants to rate the overall difficulty of the challenge exercises. 1 participant answered too easy, 1 felt that the challenge exercises were of very mixed difficulty, while the remaining found them to be OK. Since these were not meant to be very difficult, and there is likely to be variations in how different participants perceive the difficulty of a given task, this information provides no grounds for changing the difficulty of these exercises.
+\paragraph{Question 4:} Figure~\ref{fig:feedback_form_q45} displays the results from question 4: \emph{``Did you complete any of the challenge exercises?''}. The graph shows that most of the participants chose to complete challenge exercises 1 and 2, half completed exercise 3, and none completed exercises 5 and 7. Comparing this with the results from question 3, we see that all the participants who were able to complete exercises 4 through 7 had also completed challenge exercise 3, and the rest likely did not have time. In any case, the participants seemed motivated for completing the challenge exercises and gaining additional understanding of the concepts presented, but were constrained by time. Challenge exercises 5 and 7 were quite extensive, and would likely have required another 2-hour session.
+
+\paragraph{Question 5:} Figure~\ref{fig:feedback_form_q45} displays the results from question 5, which asked the participants to rate the overall difficulty of the challenge exercises. 1 participant answered too easy, 1 felt that the challenge exercises were of very mixed difficulty, while the remaining found them to be OK. Since these were not meant to be very difficult, and there is likely to be variations in how different participants perceive the difficulty of a given task, this information provides no grounds for changing the difficulty of these exercises.
+
+\begin{figure}[htp]
+	\subfloat{\includegraphics[width=.49\textwidth]{feedback_form_q4}}
+	\subfloat{\includegraphics[width=.49\textwidth]{feedback_form_q5}}
+	\caption[Results from feedback form questions 4 and 5]{Results from questions 4 (left) and 5 (right) of the feedback form (Appx.~\ref{appx:feedback_form}). The total number of students was 13.}
+	\label{fig:feedback_form_q45}
+\end{figure}
 
 \paragraph{Question 6:} Since all participants completed at least one of the challenge exercises, there were no answers to this question.
 
@@ -366,7 +390,7 @@ Unfortunately, not all of the goals listed in Sect.~\ref{sec:tutorial_goals} wer
 
 \paragraph{Everything in One Place:} The lack of a tutorial mode forced me to distribute the tutorial over more than one platform. The exercises were completed within Reactive Blocks, but introductions and tasks were presented in a separate document. Additionally, users had to use online documentation to find additional information about a subject.
 
-\subsection{Quality of the Tutorial}
+\subsection{Notes on the Quality of the Tutorial}
 \label{sec:tutorial_quality}
 Despite not fulfilling all the goals that were set in advance, the tutorial still has some value. Based on the results from the user test, we attempt to get an impression of the actual \emph{quality} of the tutorial. With quality, we consider the tutorial's ability to teach the various concepts and aspects of \gls{uml} Activities, its ability to motivate the users into wanting to learn, and the tutorial's overall usability. A tutorial with a low degree of usability is likely to waste some the users' time on irrelevant troubles.
 
