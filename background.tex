@@ -5,20 +5,46 @@ This chapter contains some of the background material that serves as the basis f
 
 \section{Software Modeling and Modeling Languages}
 \label{sec:software_modeling}
-In the world of software development, potential problems and challenges that may arise when developing a product are plentiful. 
+In the world of software development, potential problems and challenges that may arise when developing a product are plentiful. In anything but trivial systems, bugs are almost inevitable, and may be caused by anything from plain programming errors to intermittent problems as a result of resource contention. Systems with concurrent behavior are particularly difficult to implement sensibly, as there are several additional complexities and pitfalls associated with these. Potential problems are also not only related to bugs, but possibly also performance and correctness.
 
+\noindent
+In addition to many types of software being nontrivial to implement, keeping the code \emph{readable} is an undertaking of its own. When new developers are added to a team that is already deep into the development process, it can take significant time and effort to become familiar with the system. This can be a result of several factors, such as different code styles, massive spread of code (over a vast amount of files or classes), or simply bad code. In many cases, we may also want non-programmers, such as customers or salespeople, to understand what the system does.
+
+\noindent
+Software modeling serves as a solution for smoothing out these processes. Instead of the system specification existing only as code a list of functionality and bugs, it is possible to create a visual and formal model of the system. Such models are more readily understood by non-programmers, and also help other developers become familiar with the overall system architecture more quickly.
 
 \subsection{The Purpose of Software Modeling}
-- formal analysis
-- separation of concerns
-- conceptual abstractions
+\label{sec:software_modeling_purpose}
+The real world is often complex, and correctly expressing this complex world in terms a computer can understand is not a trivial task. Software modeling in languages such as \gls{uml} or \gls{sdl} is a useful tool, helping smooth out this process in several ways.
+
+\paragraph{Conceptual Abstractions} The most important purpose of software models is perhaps to provide \emph{conceptual abstractions}, by describing system functionality and collaborations on a higher level, removing less relevant detail~\cite{braek:itut_methodologies}. This allows developers and other interested parties to get a clear overview of the system architecture, without having to dig through thousands of lines of code.
+
+\paragraph{Separation of Concerns} Another purpose of software modeling is \emph{separation of concerns}, which involves reducing the perceived complexity of the system by modeling parts that are fairly independent as separate, but collaborating, entities~\cite{braek:itut_methodologies}. This may also allow the system to be modularized, potentially simplifying both implementation and maintenance of the system.
+
+\paragraph{Formal Analysis} With the use of formal and well-established modeling methods, we also open up the system design to formal analysis. Depending on the method, we may be able to mathematically or logically analyze the system architecture in order to uncover inconsistencies or errors, or calculate additional system requirements such as hardware capabilities or bandwidth.
+
+
+TODO
+
 
 
 \subsection{UML Activities}
+\label{sec:uml_activities}
+The \gls{uml} Activity diagram is a modeling concept suitable for expressing processes and workflows, particularly where concurrent behavior is observed. \gls{uml} Activities use \emph{Petri-net-like} semantics, and can be mathematically verified in various ways~\cite{eshuis:uml_verification, storrle:uml_verification}.
 
+\noindent
+In general, \gls{uml} Activity diagrams may consist of a number of different types of elements. These include, among others, logical elements such as \emph{forks} and \emph{joins}, allowing concurrent execution and synchronization of these. Other examples are \emph{decisions}, implementing alternate branches, and \emph{wait nodes}, allowing the application to wait for an event before continuing execution.  The activity is executed as a series of \emph{activity steps}, where each step involves performing the logic of one or more elements. An example of a \gls{uml} Activity diagram containing many of these elements is displayed in Fig.~\ref{fig:activity_diagram}.
 
-\subsection{Automatic Code Generation}
+\begin{figure}[htp]
+	\centering
+	\includegraphics[width=0.8\textwidth]{activity_diagram}
+	\caption[UML Activity Diagram]{An UML Activity diagram for a brainstorming process. The process consists of various \emph{actions}, such as ``Explain problem'' or ``Present idea'', that are separated primarily by conditional logic through \emph{decisions}. We also see some examples of concurrent behavior with synchronization, more specifically before and after the ``Present idea'' and ``Record idea'' actions. Both actions are performed simultaneously, and execution does not continue until both actions have finished. We also see the start and end points of activity execution, the \emph{initial node} and the \emph{final node}, as the two black circles above and below the gray area. \emph{Image source: \url{http://en.wikipedia.org/wiki/Activity_diagram}}}
+	\label{fig:activity_diagram}
+\end{figure}
 
+\subsection{Model-Driven Development}
+\label{sec:model_driven_development}
+realization is separate from functionality
 
 \section{Tutorials}
 \label{sec:tutorials}

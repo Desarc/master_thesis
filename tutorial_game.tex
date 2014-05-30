@@ -81,7 +81,7 @@ Figure~\ref{fig:level1map} displays the map for level 1. The purpose of this lev
 
 \begin{figure}[htp]
 	\centering
-	\includegraphics[scale=0.40]{level1map}
+	\includegraphics[width=0.6\textwidth]{level1map}
 	\caption[Level 1 of the Reactive Blocks game]{Level 1 of the Reactive Blocks game. The player must make the character speak, which makes a speech bubble appear beside him.}
 	\label{fig:level1map}
 \end{figure}
@@ -100,7 +100,7 @@ Figure~\ref{fig:level2map} displays the map for level 2. The purpose of this lev
 
 \begin{figure}[htp]
 	\centering
-	\includegraphics[scale=0.60]{level2map}
+	\includegraphics[width=0.7\textwidth]{level2map}
 	\caption[Level 2 of the Reactive Blocks game]{Level 2 of the Reactive Blocks game. The player must make the character move 6 tiles forward by timing the movement correctly, and then pick up the star.}
 	\label{fig:level2map}
 \end{figure}
@@ -119,7 +119,7 @@ Figure~\ref{fig:level3map} displays the map for level 3. Modeling wise, this lev
 
 \begin{figure}[htp]
 	\centering
-	\includegraphics[scale=0.50]{level3map}
+	\includegraphics[width=0.8\textwidth]{level3map}
 	\caption[Level 3 of the Reactive Blocks game]{Level 3 of the Reactive Blocks game. The player must move the character around the maze, and pick up all the stars.}
 	\label{fig:level3map}
 \end{figure}
@@ -138,7 +138,7 @@ Figure~\ref{fig:level4map} displays the map for level 4. The purpose of this lev
 
 \begin{figure}[htp]
 	\centering
-	\includegraphics[scale=0.45]{level4map}
+	\includegraphics[width=0.7\textwidth]{level4map}
 	\caption[Level 4 of the Reactive Blocks game]{Level 4 of the Reactive Blocks game. The player must open the chest to reveal an either blue or yellow key, which allows one lock to be unlocked. The character can then pass through to the star.}
 	\label{fig:level4map}
 \end{figure}
@@ -160,7 +160,7 @@ Figure~\ref{fig:level5map} displays the map for level 5. There are 4 locks with 
 
 \begin{figure}[htp]
 	\centering
-	\includegraphics[scale=0.50]{level5map}
+	\includegraphics[width=0.8\textwidth]{level5map}
 	\caption[Level 5 of the Reactive Blocks game]{Level 5 of the Reactive Blocks game. The player must open the chest to reveal an either green, blue, orange, or yellow key, which allows one lock to be unlocked. The character can then pass through to the star.}
 	\label{fig:level5map}
 \end{figure}
@@ -185,19 +185,26 @@ Even with a framework as a starting point, implementing the game prototype requi
 The result is a game prototype with 5 levels, and an introduction part for each level. Below, each component is described in more detail, using level 4 as an example.
 
 \paragraph{The Game Interface}
-Figure~\ref{fig:level4} shows the interface of the game on a wide screen (1920x1080 pixels), with the Eclipse window running a Reactive Blocks perspective on the left, and the introduction window on the right. The player starts playing the game by ``building and running'' the \emph{Level1\_Introduction} block, which makes the introduction window pop up. The player can then open the \emph{Level1} block and start modeling, by right-clicking the empty canvas and adding elements. The required operations are already implemented, referencing the JAR with the game logic, and the player can simply add them to the model. An example solution for level 4 is displayer in Fig.~\ref{fig:level4_solution}. When the model is complete, it is time to ``build and run'' the \emph{Level1} block to see if the solution is correct. If this is the case, the player moves on to \emph{Level2\_Introduction} and repeats the process.
+Figure~\ref{fig:level4} shows the interface of the game on a wide screen (1920x1080 pixels), with the Eclipse window running a Reactive Blocks perspective on the left, and the introduction window on the right. The player starts playing the game by ``building and running'' the \emph{Level1\_Introduction} block, which makes the introduction window pop up. A more detailed view of the introduction window implementation is displayed in Fig.~\ref{fig:level4_intro}. The player can then open the \emph{Level1} block and start modeling, by right-clicking the empty canvas and adding elements. The required operations are already implemented, referencing the JAR with the game logic, and the player can simply add them to the model. An example solution for level 4 is displayed in Fig.~\ref{fig:level4_solution}. When the model is complete, it is time to ``build and run'' the \emph{Level1} block to see if the solution is correct. If this is the case, the player moves on to \emph{Level2\_Introduction} and repeats the process.
 
 \begin{figure}[htp]
 	\centering
-	\includegraphics[scale=0.25]{level4}
+	\includegraphics[width=\textwidth]{level4}
 	\caption[The Reactive Blocks game interface]{The Reactive Blocks game interface. On the right side is a regular Eclipse window running the Reactive Blocks perspective with the block for level 4 open. On the right side is the introduction window for level 4.}
 	\label{fig:level4}
 \end{figure}
 
 \begin{figure}[htp]
 	\centering
-	\includegraphics[scale=0.50]{level4_solution}
-	\caption[Level 4 solution]{An example solution for level 4 of the Reactive Blocks game.}
+	\includegraphics[width=0.9\textwidth]{level4_intro}
+	\caption[Reactive Blocks game Level 4 introduction]{The implementation of the introduction window for level 4 of the Reactive Blocks game. This implementation matches the design displayed in Fig.~\ref{fig:level1_intro_mockup}.}
+	\label{fig:level4_intro}
+\end{figure}
+
+\begin{figure}[htp]
+	\centering
+	\includegraphics[width=0.8\textwidth]{level4_solution}
+	\caption[Reactive Blocks game Level 4 solution]{An example solution for level 4 of the Reactive Blocks game.}
 	\label{fig:level4_solution}
 \end{figure}
 
@@ -568,6 +575,15 @@ The current version of the prototype serves as a pretty good starting point for 
 \paragraph{Refining of Introductions} The usability test uncovered some issues with the introduction part that should be improved, such as confusion about the \emph{Activity Final} node. The introductions need to be refined with these specific issues in mind, without inadvertently introducing other issues. Additionally, introduction parts for additional levels within the game should not only be carefully designed, but thoroughly tested to verify that they provide the information required in a clear and simple way.
 
 \paragraph{More Levels} Since this is only a first prototype, it only covers part of the \gls{uml} Activity topic, with many concepts left untouched. The prototype should be extended with more levels that introduce players to all of these concepts, and possibly also with levels that add additional challenges allowing deeper understanding to some of the concepts.
+
+\noindent
+Some level ideas to introduce additional concepts follow:
+\begin{itemize}
+	\item{\textbf{Concurrency and Forks:}} Add more characters to the game, allowing the player to control several characters simultaneously.
+	\item{\textbf{Events:}} Instead having to perfectly time cooperation between several game characters, make interaction operations send \emph{events} that other characters can listen for.
+	\item{\textbf{Joins:}} Similar to events, levels can be designed so that the player will benefit from synchronizing actions between multiple game characters with the join node.
+	\item{\textbf{Modularization:}} Design the level so that the same actions are repeated in several places. The player can then create an ``action module'' in the form of a \emph{local block} that can be reused in several places.
+\end{itemize}
 
 \paragraph{More Testing} While the usability test gave some indications and helped uncover some issues with the game, more testing needs to be done. Ideally, a comparative study should be conducted with a more complete prototype, comparing various variables between the tutorial game and other learning methods, such as level of understanding, enjoyment and motivation, time required for learning, and so on. These additional tests may discover more issues about the game in its current form, or in the worst case, even provide results indicating that the concept itself needs to be rethought.
 
