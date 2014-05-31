@@ -176,13 +176,13 @@ Figure~\ref{fig:level5map} displays the map for level 5. There are 4 locks with 
 
 \section{Implementation}
 \label{sec:game_implementation}
-With the game concept in place, it was time to start working on the prototype implementation. Since Reactive Blocks is Java-based, the natural choice was to start with a Java framework for creating games. I settled for \emph{libGDX},\footnote{\url{http://libgdx.badlogicgames.com/}} a Java game development framework licensed under Apache 2.0.
+With the game concept in place, it was time to start working on the prototype implementation. Since Reactive Blocks is Java-based, the natural choice was to start with a Java framework for creating games. I settled for \emph{libGDX},\footnote{\href{http://libgdx.badlogicgames.com/}{LibGDX: Java game development framework (link)}} a Java game development framework licensed under Apache 2.0.
 
 \noindent
-Even with a framework as a starting point, implementing the game prototype required considerable work. The game itself was implemented as a JAR to be included with a Reactive Blocks project containing blocks for each level. Graphics are based on or retrieved from various collections of free graphics on the web. For the interested reader, both the full source code\footnote{\url{https://github.com/Desarc/reactive-blocks-tutorials/tree/master/no.ntnu.oyvinric.tutorialgame}} and the Reactive Blocks project\footnote{\url{https://github.com/Desarc/tutorial-game}} is available on GitHub.
+Even with a framework as a starting point, implementing the game prototype required considerable work. The game itself was implemented as a JAR to be included with a Reactive Blocks project containing blocks for each level. Graphics are based on or retrieved from various collections of free graphics on the web. For the interested reader, both the full source code\footnote{\href{https://github.com/Desarc/reactive-blocks-tutorials/tree/master/no.ntnu.oyvinric.tutorialgame}{Tutorial Game source code project on GitHub (link)}} and the Reactive Blocks project\footnote{\href{https://github.com/Desarc/tutorial-game}{Tutorial Game release project on GitHub (link)}} is available online.
 
 \noindent
-The result is a game prototype with 5 levels, and an introduction part for each level. Below, each component is described in more detail, using level 4 as an example.
+The result is a game prototype with 5 levels, and an introduction part for each level. The level maps were designed using the \emph{Tiled Map Editor}\footnote{\href{http://www.mapeditor.org/}{Tiled Map Editor website (link)}} Below, each component is described in more detail, using level 4 as an example.
 
 \paragraph{The Game Interface}
 Figure~\ref{fig:level4} shows the interface of the game on a wide screen (1920x1080 pixels), with the Eclipse window running a Reactive Blocks perspective on the left, and the introduction window on the right. The player starts playing the game by ``building and running'' the \emph{Level1\_Introduction} block, which makes the introduction window pop up. A more detailed view of the introduction window implementation is displayed in Fig.~\ref{fig:level4_intro}. The player can then open the \emph{Level1} block and start modeling, by right-clicking the empty canvas and adding elements. The required operations are already implemented, referencing the JAR with the game logic, and the player can simply add them to the model. An example solution for level 4 is displayed in Fig.~\ref{fig:level4_solution}. When the model is complete, it is time to ``build and run'' the \emph{Level1} block to see if the solution is correct. If this is the case, the player moves on to \emph{Level2\_Introduction} and repeats the process.
@@ -209,10 +209,10 @@ Figure~\ref{fig:level4} shows the interface of the game on a wide screen (1920x1
 \end{figure}
 
 \noindent
-The introduction window is described in more detail in Sect.~\ref{sec:game_tutorial}, and matches the design mock-up. Like the rest of the game, it is implemented within the \emph{libGDX} framework. The introduction slide show for each level is available on YouTube.\footnote{\url{http://www.youtube.com/playlist?list=PLoqEHDwb_4oD8LT7n-7Q1dx67HxXwJN_K}}
+The introduction window is described in more detail in Sect.~\ref{sec:game_tutorial}, and matches the design mock-up. Like the rest of the game, it is implemented within the \emph{libGDX} framework. The introduction slide show for each level is available on YouTube.\footnote{\href{http://www.youtube.com/playlist?list=PLoqEHDwb_4oD8LT7n-7Q1dx67HxXwJN_K}{Reactive Blocks Game introductions (YouTube, link)}}
 
 \paragraph{The Game Window}
-Figure~\ref{fig:game_window} shows the main game window after level 4 has been completed. This window is opened when the player ``builds and runs'' the \emph{Level4} block after completing the model, and assuming the model is correct, displays the desired behavior of the game character. A short video of a successful run through level 4 is available on YouTube.\footnote{\url{http://youtu.be/Fe3CWCLogGs}}
+Figure~\ref{fig:game_window} shows the main game window after level 4 has been completed. This window is opened when the player ``builds and runs'' the \emph{Level4} block after completing the model, and assuming the model is correct, displays the desired behavior of the game character. A short video of a successful run through level 4 is available on YouTube.\footnote{\href{http://youtu.be/Fe3CWCLogGs}{Reactive Blocks Game level 4 completion (YouTube, link)}}
 
 \begin{figure}[htp]
 	\centering

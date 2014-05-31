@@ -19,21 +19,19 @@ The real world is often complex, and correctly expressing this complex world in 
 
 \paragraph{Conceptual Abstractions} The most important purpose of software models is perhaps to provide \emph{conceptual abstractions}, by describing system functionality and collaborations on a higher level, removing less relevant detail~\cite{braek:itut_methodologies}. This allows developers and other interested parties to get a clear overview of the system architecture, without having to dig through thousands of lines of code.
 
+\paragraph{Understandability} In addition to providing abstractions that hide details, software models are able to present architecture and functional concepts in ways that better appeal to our intuition~\cite{selic:model_driven_development}. This further reduces the learning effort required, and may help us to a better understanding of the workings of a system.
+
 \paragraph{Separation of Concerns} Another purpose of software modeling is \emph{separation of concerns}, which involves reducing the perceived complexity of the system by modeling parts that are fairly independent as separate, but collaborating, entities~\cite{braek:itut_methodologies}. This may also allow the system to be modularized, potentially simplifying both implementation and maintenance of the system.
 
-\paragraph{Formal Analysis} With the use of formal and well-established modeling methods, we also open up the system design to formal analysis. Depending on the method, we may be able to mathematically or logically analyze the system architecture in order to uncover inconsistencies or errors, or calculate additional system requirements such as hardware capabilities or bandwidth.
-
-
-TODO
-
+\paragraph{Formal Analysis} With the use of formal and well-established modeling methods, we also open up the system design to formal analysis. Depending on the method, we may be able to mathematically or logically analyze the system architecture in order to uncover inconsistencies or errors, or calculate additional system requirements such as hardware capabilities or bandwidth. This also adds \emph{predictiveness} to the system, providing indications of how the final implementation will behave under various conditions~\cite{selic:model_driven_development}.
 
 
 \subsection{UML Activities}
 \label{sec:uml_activities}
-The \gls{uml} Activity diagram is a modeling concept suitable for expressing processes and workflows, particularly where concurrent behavior is observed. \gls{uml} Activities use \emph{Petri-net-like} semantics, and can be mathematically verified in various ways~\cite{eshuis:uml_verification, storrle:uml_verification}.
+The \gls{uml} Activity diagram is a modeling concept suitable for expressing processes and workflows, particularly where concurrent behavior is observed. \gls{uml} Activities use \emph{Petri-net-like} semantics, and can be mathematically or logically verified in various ways~\cite{eshuis:uml_verification, kraemer:arctis, storrle:uml_verification}.
 
 \noindent
-In general, \gls{uml} Activity diagrams may consist of a number of different types of elements. These include, among others, logical elements such as \emph{forks} and \emph{joins}, allowing concurrent execution and synchronization of these. Other examples are \emph{decisions}, implementing alternate branches, and \emph{wait nodes}, allowing the application to wait for an event before continuing execution.  The activity is executed as a series of \emph{activity steps}, where each step involves performing the logic of one or more elements. An example of a \gls{uml} Activity diagram containing many of these elements is displayed in Fig.~\ref{fig:activity_diagram}.
+In general, \gls{uml} Activity diagrams may consist of a number of different types of elements. These include, among others, logical elements such as \emph{forks} and \emph{joins}, allowing concurrent execution and synchronization of these. Other examples are \emph{decisions}, implementing alternate branches, and \emph{wait nodes}, allowing the application to wait for an event before continuing execution.  The activity is executed as a series of \emph{activity steps}, where each step involves performing the logic of one or more elements. An example of a \gls{uml} Activity diagram containing many of these elements is displayed in Fig.~\ref{fig:activity_diagram}. The various elements are described in more detail within the context of Reactive Blocks, in Sect.~\ref{sec:reactive_blocks}.
 
 \begin{figure}[htp]
 	\centering
@@ -44,22 +42,80 @@ In general, \gls{uml} Activity diagrams may consist of a number of different typ
 
 \subsection{Model-Driven Development}
 \label{sec:model_driven_development}
-realization is separate from functionality
+While software modeling simply can be used to provide better documentation of systems and visualize their architecture, it is also possible to go one step further and employ the \emph{\gls{mdd}} approach (closely related to the concept of \emph{\gls{mda}}\footnote{\href{http://www.omg.org/mda/}{OMG: MDA - The Architecture Of Choice For A Changing World (link)}}). With the \gls{mdd} approach, software models are at the center of the development process, rather than playing a supplementing or secondary role. Software models have the advantage that they can be very independent from the implementation platforms, allowing the software structure to be mapped, or \emph{deployed}, to more than one platform~\cite{braek:itut_methodologies, selic:model_driven_development}.
+
+\noindent
+Digging deeper into the \gls{mdd} approach, it has been argued that its full potential can only be realized if the models are used to automatically generate complete and fully executable programs~\cite{selic:model_driven_development}. Given a robust and correct deployment, automatic generation of code can help improve correctness, maintainability, and number of software bugs.
+
+\noindent
+There are various commercial and non-commercial projects working on solutions for \gls{mda} and \gls{mdd}, many of them listed on the \gls{omg} website.\footnote{\href{http://www.omg.org/mda/committed-products.htm}{OMG: MDA - Committed Companies And Their Products (link)}} Reactive Blocks, currently in development by Bitreactive AS,\footnote{\href{http://www.bitreactive.com/}{Bitreactive website (link)}} is an example of a solution that generates fully executable applications based on \gls{uml} Activity-like models.
+
+\subsection{Reactive Blocks}
+\label{sec:reactive_blocks}
+Reactive Blocks is the result of various research efforts into compositional service engineering and \gls{mdd} at \gls{ntnu}\cite{kraemer:arctis_ramses}. The software is released as a plugin for the Eclipse IDE, providing a modeling environment for \gls{uml} Activities. Using the Reactive Blocks tool, these models can be formally analyzed, and further used to automatically generate fully executable applications.
+
+\noindent
+Models Reactive Blocks are based on and very closely resemble \gls{uml} Activity diagrams. Figure~\ref{fig:reactive_blocks_model} shows an example of a model in Reactive Blocks, containing many of the \gls{uml} Activity elements mentioned in Sect.~\ref{sec:uml_activities}. Reactive Blocks is additionally focused around \emph{Collaborative Building Blocks}, allowing complete collaborations or sub-services to be reused.
+
+\begin{figure}[htp]
+	\centering
+	\includegraphics[width=1\textwidth]{reactive_blocks_model}
+	\caption[Reactive Blocks model example]{An example of a model in Reactive Blocks, resembling the \gls{uml} Activity diagram in Fig.~\ref{fig:activity_diagram}. The \emph{Counter} and \emph{CoinFlipper} elements are building blocks, containing modularized logic exposed through an \gls{api}.}
+	\label{fig:reactive_blocks_model}
+\end{figure}
+
+\noindent
+Activities in Reactive Blocks are executed like regular \gls{uml} Activities, as a series of \emph{activity steps}. These steps are implemented in the form of \emph{tokens} moving through sequences of elements (\emph{flows}), activating them along the way. The step finally ends when the token reaches a \emph{stable position}, where it will either stay until the start of another step or be removed. Reactive Blocks models can be built from a number of modeling elements and nodes:
+
+\begin{itemize}
+	\item{\textbf{Edge:}} \emph{Edges} connect other elements in Reactive Blocks, carrying tokens and implementing the flow between them. All edges are directed, and may additionally carry data objects with tokens. With data, the edge is called an \emph{object flow}, and without data, simply a \emph{control flow}.
+	\item{\textbf{Initial Node:}} The \emph{Initial Node} is where the activity execution starts. When the application is launched, a token is sent out from all initial nodes.
+	\item{\textbf{Operation/Java method:}} Corresponding to the \emph{actions} displayed in Fig.~\ref{fig:activity_diagram}, \emph{operations} are elements that work on data or \glspl{api}, implemented in Reactive Blocks as Java methods. Operations may take one or more parameters, and in the case of more, they also work like \emph{join} nodes.
+	\item{\textbf{Variables}} \emph{Variables} are elements that store data, and can be accessed by regular operations, or directly within the activity diagram via special \emph{set} and \emph{get} operations.
+	\item{\textbf{Flow Final:}} The \emph{Flow Final} node terminates a flow, removing any incoming token.
+	\item{\textbf{Activity Final:}} The \emph{Activity Final} node works like the flow final, except it also terminates the application.
+	\item{\textbf{Timer:}} The \emph{Timer} node realizes simple delays by putting any incoming tokens in a stable position until the timer has expired, upon when a new activity step is started.
+	\item{\textbf{Decision:}} \emph{Decision} nodes are used to implement alternate branches. Incoming tokens must carry data, and the outgoing edge is chosen by checking the carried data against the \emph{guards} set on these edges. Guards may be either boolean, integer or String values, or \emph{null}.
+	\item{\textbf{Fork:}} \emph{Fork} nodes are used to implement concurrent branches and parallel behavior, duplicating any incoming tokens to all outgoing edges.
+	\item{\textbf{Join:}} The complementary part to forks, the \emph{Join} node synchronizes several flows, concurrent or not. When a token has been received on \emph{all} incoming edges, a \emph{single} token is sent on the outgoing edge.
+	\item{\textbf{Merge:}} \emph{Merge} nodes are similar to join nodes, but instead of waiting for a token to arrive on each incoming edge, \emph{all} tokens from incoming edges are simply forwarded on the outgoing edge.
+	\item{\textbf{Event Reception:}} \emph{Event Receptions} are stable positions that wait for an internal signal, or an \emph{event}, before sending a token on the outgoing edge. These events are generally sent from operations somewhere else in the system.
+	\item{\textbf{Building Blocks:}} \emph{Building Blocks} are independent sub-modules that implement some functionality. These modules are themselves constructed like activity diagrams, but do not have initial or activity final nodes. Instead, they have input/output pins that accept tokens, and \glspl{esm} that determine which pins can accept tokens in a given state. 
+\end{itemize}
+
+\noindent
+Because it is a tool for \gls{uml} Activity modeling, with model checking and code generation capabilities, Reactive Blocks will serve as the basis for the work in this thesis.
+
+\section{Learning Programming and Software Modeling}
+\label{sec:learning_programming}
+In order to teach potential users to use topics such as a programming language, paradigm, protocol or modeling language, various tools or sources of information may be provided. Generally, some form of formal documentation or specification of the language or protocol is considered mandatory, and serves as the \emph{definitive} source of information. Additionally, various tutorials and exercises are often created in order to provide a better introduction to the topic, decreasing the threshold for learning this topic.
+
+\subsection{Documentation}
+While a topic's documentation often serves as its primary source of information, such formal documents are not necessarily the best source of information when \emph{learning} about the given topic. Often it is not intended as a learning resource, but rather as a formal reference for users already familiar with the topic. In the documentation, the topic is generally presented in a structured way with respect to its various aspects, so that it is easy for someone already familiar with the topic to find the required information.
+
+\noindent
+A good example of this is the \gls{uml} specification.\footnote{\href{http://www.omg.org/spec/UML/2.4.1/}{OMG: Documents Associated With Unified Modeling Language (UML), V2.4.1 (link)}} While the specification offers detailed information about every aspect of \gls{uml} in a way that suits an experienced user, it is likely confusing and not particularly helpful for a user with no previous experience or knowledge about \gls{uml}. Using this specification as a starting point for learning \gls{uml} is likely to require a lot of effort from the user. In the worst case, the user may not even learn all the concepts properly, despite the provided information being very specific and accurate.
+
+\noindent
+More importantly, the user may not learn how to properly apply the learned concepts to a given situation. In many cases, 
+TODO
+
+
+\subsection{Advantages and Challenges}
 
 \section{Tutorials}
 \label{sec:tutorials}
-TODO: mention more about tutorials in games \\
 ``A tutorial is a method of transferring knowledge and may be used as a part of a learning process. More interactive and specific than a book or a lecture, a tutorial seeks to teach by example and supply the information to complete a certain task.''~\cite{wiki:tutorial}
 
 \noindent
-Tutorials are often used to teach and introduce new topics to users who previously have little or no experience with it. Tutorials may be designed for learning a vast range of topics, such as:
+Tutorials are often used to teach and introduce new topics to users who previously have little or no experience with it. Most commonly, tutorials cover topics and concepts that are difficult to understand intuitively, or to highlight aspects of a concept that are nontrivial and less obvious. Tutorials may be designed for learning a vast range of topics, such as:
 \begin{itemize}
-	\item Programming, or using specific programming or modeling languages.\footnote{\url{http://docs.oracle.com/javase/tutorial/}}$^{,}$\footnote{\url{http://www.tutorialspoint.com/uml/}}
-	\item Spoken languages.\footnote{\url{http://ielanguages.com/}}
-	\item Software products.\footnote{\url{http://www.photoshoptutorials.ws/category/photoshop-tutorials/}}
-	\item Video games (such tutorials are usually presented inside the game itself)
-	\item Real-life skills, like photography.\footnote{\url{http://photography.tutsplus.com/}}
-	\item Human sciences.\footnote{\url{http://anthro.palomar.edu/tutorials/}}
+	\item Programming, or using specific programming or modeling languages.\footnote{\href{http://docs.oracle.com/javase/tutorial/}{The Java Tutorials  (link)}}$^{,}$\footnote{\href{http://www.tutorialspoint.com/uml/}{Tutorialspoint UML Tutorial (link)}}
+	\item Spoken languages.\footnote{\href{http://ielanguages.com/}{IELanguages: Free Language Tutorials (link)}}
+	\item Software products.\footnote{\href{http://www.photoshoptutorials.ws/category/photoshop-tutorials/}{Photoshop Tutorials (link)}}
+	\item Video games (these tutorials are usually presented inside the game itself)
+	\item Real-life skills, like photography.\footnote{\href{http://photography.tutsplus.com/}{Tuts+ Photography Tutorials (link)}}
+	\item Human sciences.\footnote{\href{http://anthro.palomar.edu/tutorials/}{Anthropology Tutorials (link)}}
 \end{itemize}
 
 \noindent
@@ -71,19 +127,16 @@ Additionally, tutorials come in many forms. The most common form of tutorial is 
 \noindent
 The term ``tutorial'' also defines a concept in the context of British (and other) academia, which is a small class tutored by a lecturer. This type of tutorial is not relevant to this thesis and will not be considered further.
 
-\subsection{Why Do We Use Tutorials?}
-\label{sec:tutorial_why}
-TODO
-
 \subsection{The Structure of a Tutorial}
 \label{sec:tutorial_structure}
 Tutorials for different types of topics are generally structured in a way the author believes will provide a good introduction for the given topic, starting with the necessary basic information, and then building on this to learn more advanced concepts. Depending on both the topic and the author, this may result in very different structures.
 
 \noindent
-Looking at some of the examples from Sect.~\ref{sec:tutorials}, we see that while the Java tutorials provide stepwise instructions for reaching a specific goal, the spoken language tutorials serve as more of a lookup reference for the most basic concepts within the language. The spoken language tutorials are actually in some ways similar to the separate Java API documentation.\footnote{\url{http://docs.oracle.com/javase/8/docs/api/index.html}}
+Looking at some of the examples from Sect.~\ref{sec:tutorials}, we see that while the Java tutorials provide stepwise instructions for reaching a specific goal, the spoken language tutorials serve as more of a lookup reference for the most basic concepts within the language. The spoken language tutorials are actually in some ways similar to the separate Java API documentation.\footnote{\href{http://docs.oracle.com/javase/8/docs/api/index.html}{Java Platform, Standard Edition 8
+API Specification (link)}}
 
 \noindent
-While there are differences in how tutorials for various topics are made, we can identify some general patterns and elements that are present in a wide range of different tutorials:
+While there are differences in how tutorials for various topics are made, we can identify some general patterns and elements that may be present in a wide range of different tutorials:
 \begin{itemize}
 	\item A list of prerequisites, such as knowledge, equipment or both.
 	\item Basic and/or advanced information about the topic, depending on the scope of the tutorial. Often presented in a stepwise manner, starting from the most basic and moving on to the more advanced.
@@ -94,13 +147,14 @@ While there are differences in how tutorials for various topics are made, we can
 \end{itemize}
 
 \noindent
-In various combinations, these elements aim to make the introduction to a topic more progressive and intuitive for new users.
+In various combinations, these elements aim to make the introduction to a topic more interesting and intuitive for new users.
 
 \noindent
 It is also worth noting that most topics are rarely introduced by a single tutorial. A tutorial is more often designed to introduce only a specific concept within or a part of a topic, with additional tutorials covering other parts. This allows the user to first become familiar with basic concepts, before moving on to tutorials covering the more advanced parts.
 
-\subsection{The Characteristics of a Tutorial}
+\subsection{Tutorials in Video Games}
 \label{sec:tutorial_characteristics}
+Tutorials for video games are generally significantly different from other types of tutorials. They usually provide an \emph{immersive} learning experience within the game itself, by letting players experiment with concepts and offering direct visualization of the consequences.
 
 
 \paragraph{Presence} 
@@ -113,31 +167,13 @@ It is also worth noting that most topics are rarely introduced by a single tutor
  
 
 
-%\subsection{What Makes a Tutorial Good?}
+\subsection{What Makes a Tutorial Good?}
+\label{sec:good_tutorials}
 %https://www.udemy.com/blog/how-to-make-a-great-tutorial-video/
 %http://spyrestudios.com/the-anatomy-of-a-great-tutorial/
 %http://www.gamasutra.com/view/feature/134774/the_designers`_notebook_eight_.php
 %http://chris.pirillo.com/how-to-make-a-great-video-tutorial/
 %http://menwithpens.ca/great-tutorial/
-
-
-\section{Learning Programming and Software Modeling}
-\label{sec:learning_programming}
-In order to teach potential users to use topics such as a programming language, paradigm, protocol or modeling language, various tools or sources of information may be provided. Generally, some form of formal documentation or specification of the language or protocol is considered mandatory, and serves as the \emph{definitive} source of information. Additionally, various tutorials and exercises are often created in order to provide a better introduction to the topic, decreasing the threshold for learning this topic.
-
-\subsection{Documentation}
-While a topic's documentation often serves as its primary source of information, such formal documents are not necessarily the best source of information when \emph{learning} about the given topic. Often it is not intended as a learning resource, but rather as a formal reference for users already familiar with the topic. In the documentation, the topic is generally presented in a structured way with respect to its various aspects, so that it is easy for someone already familiar with the topic to find the required information.
-
-\noindent
-A good example of this is the \gls{uml} specification.\footnote{\url{http://www.omg.org/spec/UML/2.4.1/}} While the specification offers detailed information about every aspect of \gls{uml} in a way that suits an experienced user, it is likely confusing and not particularly helpful for a user with no previous experience or knowledge about \gls{uml}. Using this specification as a starting point for learning \gls{uml} is likely to require a lot of effort from the user. In the worst case, the user may not even learn all the concepts properly, despite the provided information being very specific and accurate.
-
-\noindent
-More importantly, the user may not learn how to properly apply the learned concepts to a given situation. In many cases, 
-
-
-\subsection{Advantages and Challenges}
-
-
 
 
 \section{Game-based learning}
@@ -151,7 +187,31 @@ More importantly, the user may not learn how to properly apply the learned conce
 
 \subsection{Applying Acquired Knowledge and Skills in the Game}
 
+\subsection{Non-Serious Games}
+\label{sec:non-serious_games}
+While the term \emph{Serious Games} covers the type of games that are designed for purposes other than entertainment, there are many examples of games designed for entertainment that ``accidentally'' teach their players valuable skills and knowledge.
 
+\noindent
+James P. Gee is a famous advocate for game-based learning. Through his analysis of various ``non-serious'' games, he identifies good principles of learning present in many of these games~\cite{gee:learning_machines}:
+
+\begin{itemize}
+	\item{\textbf{Empowered Learners:}} Players feel like active agents while playing, and not just passive recipients of information. Games are interactive, which leads to perceived ownership and engaged participation.
+	\item{\textbf{Customization:}} Players are in many cases allowed to make choices about how to play, such as adjusting difficulty or playing style. People are different, and learn in different ways.
+	\item{\textbf{Identity:}} Players often take on new identities within the game, in which they become heavily invested. This leads to a level of commitment that facilitates for deep learning.
+	\item{\textbf{Manipulation and Distributed Knowledge:}} When players are able to control and manipulate a character or an object in the game environment, they feel expanded and empowered. Often, part of the knowledge required for manipulation is stored in the game itself (automated), so that the player can focus on the parts that are important for their task (and ``level of abstraction'').
+	\item{\textbf{Well-ordered Problems:}} Players are exposed to problems in a well-ordered manner, so that they can form hypotheses that not only work in the moment, but prepare them for more difficult challenges later in the game.
+	\item{\textbf{Pleasant Frustration:}} Players are exposed to problems that are neither too easy or too hard, but at the edge of the players' competence, and at their own pace.
+	\item{\textbf{Cycles of Expertise:}} Players are allowed to repeat and practice skills until they become nearly automatic. Then, as the game progresses, they might have to adapt their skills to new conditions, and repeat the cycle.
+	\item{\textbf{Context-sensitivity of Information:}} Players are often presented with the information they need \emph{when} they need it, instead of having to memorize it in advance.
+	\item{\textbf{Fish Tanks:}} In many cases, games serve as simplified versions of real-world systems, and illustrate some important concepts while hiding complexities that might be too difficult to handle for novices. Sometimes, such fish tanks are also created within the game itself, in the form of tutorials. This allows players to exercise their skills without having to worry about \emph{all} the details.
+	\item{\textbf{Sandboxes:}} Games also provide a safe environment for exercising skills, where the cost of failure generally is low compared to the real world.
+	\item{\textbf{Skills as Strategies:}} Instead of practicing for the sole purpose of becoming good, players see the skills they learn as a strategy towards accomplishing goals within the game. This provides better motivation by allowing ``in-context'' practice.
+	\item{\textbf{System Thinking:}} Many games consist of smaller elements, where players must understand how all the elements interact fit into the overall system of the game.
+	\item{\textbf{Meaning as Action Image:}} Instead of just providing definitions and descriptions, games present concepts through visualizations and experiences, which is closer to how people actually think.
+\end{itemize}
+
+\noindent
+These are clearly principles that should be considered also in serious and educational games, not only those made for entertainment. As Gee points out, \emph{``When we think of games, we think of fun. When we think of learning, we think of work''}. If done right, it is likely possible to merge the tedious process of learning with the fun of games with equal or better results.
 
 
 
