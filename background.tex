@@ -1,6 +1,6 @@
 \chapter{Background}
 \label{ch:background}
-This chapter contains some of the background material that serves as the basis for this thesis, with additional related work listed in Ch.~\ref{ch:related_work}. 
+This chapter introduces some background material that serves as the basis for this thesis, covering in part the various topics it touches. The chapter is meant only to introduce these topics, and provide brief summarizations. Some additional background material, more specifically \emph{related work}, is covered in Ch.~\ref{ch:related_work}. 
 
 \section{Software Modeling and Modeling Languages}
 \label{sec:software_modeling}
@@ -195,18 +195,45 @@ Andersen et.al~\cite{andersen:tutorials_impact} identify and experiment with fou
 \noindent
 While designing tutorials for video games requires extra attention to some details, many of the things that apply other types of tutorials are also important for video game tutorials. The purpose is still to try and teach various concepts to a specific audience in the best way possible.
 
-\section{Game-based learning}
+\section{Game-Based Learning}
 \label{sec:game_based_learning}
+The concept of using games and game-like approaches to teach is becoming more and more widespread. Educational institutions, ranging from elementary schools to universities, as well as independent educational organizations, let their students play games in order to learn everything from mathematics and languages to history and social sciences. This is in part because technological advances have made it possible to explore these approaches to teaching, but also because educators are realizing that in the 21st century, students need to master a different set of skills than before in order to be competitive~\cite{nea:four_cs}. These skills include among others, communication, critical thinking and collaboration, skills that are paramount for success in many games.
 
-\subsection{Gamification}
+\subsection{Serious and Epistemic Games}
+\label{sec:serious_games}
+Games that are designed for a purpose that is not pure entertainment are often called \emph{Serious Games}, a term likely popularized by \emph{The Serious Games Initiative}\footnote{\href{http://www.seriousgames.org/}{The Serious Games Initiative website (link)}} in 2002~\cite{djaouti:serious_games_origins}. This genre encompasses many different types of games, but a prime example of a serious game is the \emph{flight simulator}, a realistic type of game that exists in various forms, and is extensively used to teach pilots how to fly aircraft.
 
+\noindent
+The idea behind serious games is to improve student motivation and engagement by providing immersive learning experiences, similar to how many professions are taught. I can read a lot about woodworking, but in order to become a good carpenter, I must practice. Seeing actual results of my knowledge and skills in woodworking is also likely to be more enjoyable than simply imagining how it might look. Games can provide a similar kind of (simulated) hands-on experience for topics that are difficult or inconvenient to practice immersively, especially more abstract topics like math or computer programming, and this has also proved to be a more efficient learning method in many cases. Children especially learn and are better motivated by the kind of problem-solving we find in games, as opposed to traditional textbook learning~\cite{freitas:serious_games_new_paradigm}.
 
-\subsection{Learning Inside the Game}
+\noindent
+Several organizations working with serious games exist. Some examples are the \emph{Serious Games Institute},\footnote{\href{http://www.seriousgamesinstitute.co.uk/}{Serious Games Institute website (link)}} the \emph{Games Learning Society},\footnote{\href{http://www.gameslearningsociety.org/}{Games Learning Society website (link)}} the \emph{Learning Games Network},\footnote{\href{http://learninggamesnetwork.org/}{Learning Games Network website (link)}} and \emph{Serious Games Interactive}.\footnote{\href{http://www.seriousgames.net/}{Serious Games Interactive website (link)}} These represent both commercial, societal, and academic interest in serious games.
 
+\noindent
+Researchers at the University of Wisconsin coined the term \emph{Epistemic Games} for the subset of serious games that aim to teach specific professions or skills~\cite{shaffer:epistemic_games}. They argue that games can help teach students to apply their knowledge, instead of simply remembering, in addition to facilitate for \emph{innovative} learning. With this as a basis, \emph{The Games and Professional Simulations Research Consortium}\footnote{\href{http://edgaps.org/gaps/}{The Games and Professional Simulations Research Consortium website (link)}} has been formed in order to solve educational challenges through games and simulations.
+
+\subsection{Examples of Game-Based Learning}
+\label{sec:game_based_learning_examples}
+There are numerous examples of games that are designed to teach various concepts. Especially for children there are many sources of different games teaching subjects like math, language, history, or other primary education topics. The target audience for these types of games is however not limited to children, but exist within all levels of education. Some examples of these types of games follow in this section, with some additional examples related to learning programming mentioned in Sect.~\ref{sec:learning_with_games}.
+
+\noindent
+Many of the educational games for children are found on the web,\footnote{See for example \href{http://www.learninggamesforkids.com/}{Learning Games for Kids (link)}, \href{http://mrnussbaum.com/gamescode/}{Mr. Nussbaum (link)}, or \href{http://gamestolearnenglish.com/}{Games to Learn English (link)}} as the result of volunteer work or the efforts of educational organizations. These are mostly simple games, where children get to practice their skills in the respective subjects in fun ways.
+
+\noindent
+Some educational game efforts are present not only on the web and by initiative of individual teachers, but have been widely adopted by educational institutions. One such game is \emph{Enki},\footnote{\href{http://www.aftenposten.no/nyheter/iriks/Her-larer-11-aringene-matte-7351857.html}{Aftenposten 2013-10-29 (link, Norwegian)}} a relatively new Norwegian web-based game that teaches elementary and middle school students subjects like English and mathematics. Another example is \emph{Scratch}, a game-like environment for learning programming-like skills developed at \gls{mit}~\cite{resnick:scratch}. \emph{Scratch} is available in more than 40 languages, and used for education in more than 150 countries.
+
+\noindent
+Some educational organizations provide game-like learning in a way that is slightly different from the simple-practice-game approach, and \emph{KhanAcademy} is one such organization. The \emph{KhanAcademy} website is mostly about lectures, but it also provides exercises students can work with to better understand the subjects. These exercises are like regular text book exercises, but award \emph{badges} and \emph{points} for each skill ``mastered'', and additionally if answers are provided quickly, or without any errors. This approach is in line with the current trend of \emph{Gamification} that exists in fields like \gls{hci}\cite{deterding:gamification}. \emph{KhanAcademy} has lectures and exercises for a several different subjects, and for concepts in the whole range of educational institutions, from elementary school to university level.
+
+\noindent
+Game-like learning can also be a part of classroom teaching, with the purpose of engaging students more in the subjects being taught. \emph{Kahoot},\footnote{\href{https://getkahoot.com/}{Kahoot website (link)}} a classroom response system recently developed at \gls{ntnu}, is an example of this.~\emph{Kahoot} allows both students and teachers to ask and answer questions and quizzes, providing a more interactive and engaging learning experience.
+
+\noindent
+The examples mentioned in this section are only the tip of the iceberg for educational games and game-like learning, and many more exist.
 
 \subsection{Learning from Non-Educational Games}
 \label{sec:non_educational_games}
-James P. Gee is a famous advocate for game-based learning. Through his analysis of various non-educational games, he identifies good principles of learning present in many of these games~\cite{gee:learning_machines}:
+While there is little doubt about the teaching potential of educational games, there are also lessons to be learned from games that are designed purely for entertainment. James P. Gee, a famous advocate for game-based learning, argues that many entertainment games are designed in ways that force players to learn complex concepts, and through this process gain knowledge and skills that are useful also outside the context of the game~\cite{gee:learning_machines}. They even make the players \emph{want} to spend time learning these concepts, by providing good learning environments and keeping up motivation and engagement in various ways. His main points are summarized below.
 
 \begin{itemize}
 	\item{\textbf{Empowered Learners:}} Players feel like active agents while playing, and not just passive recipients of information. Games are interactive, which leads to perceived ownership and engaged participation.
@@ -225,8 +252,8 @@ James P. Gee is a famous advocate for game-based learning. Through his analysis 
 \end{itemize}
 
 \noindent
-These are clearly principles that should be considered also in serious and educational games, not only those made for entertainment. As Gee points out, \emph{``When we think of games, we think of fun. When we think of learning, we think of work''}. If done right, it is likely possible to merge the tedious process of learning with the fun of games with equal or better results.
+These are clearly principles that should be considered also educational games, not only those made for entertainment. As Gee points out, \emph{``When we think of games, we think of fun. When we think of learning, we think of work''}. If done right, it is likely possible to merge the tedious process of learning with the fun of games with equal or better results.
 
-
-
+\noindent
+Player engagement for learning in entertainment games can also go beyond what the game itself teaches. One example of this is the concept of \emph{theorycrafting}, which is a term used to describe the process of applying mathematical analysis and simulation in order to optimize playing styles in games like \emph{Starcraft} and \emph{World of Warcraft}~\cite{paul:theorycrafting}. This is not only an example of bringing complex concepts into a game, but also a desire to learn more about a game than is actually required to play it.
 
