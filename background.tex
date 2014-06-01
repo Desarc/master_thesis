@@ -2,7 +2,6 @@
 \label{ch:background}
 This chapter contains some of the background material that serves as the basis for this thesis, with additional related work listed in Ch.~\ref{ch:related_work}. 
 
-
 \section{Software Modeling and Modeling Languages}
 \label{sec:software_modeling}
 In the world of software development, potential problems and challenges that may arise when developing a product are plentiful. In anything but trivial systems, bugs are almost inevitable, and may be caused by anything from plain programming errors to intermittent problems as a result of resource contention. Systems with concurrent behavior are particularly difficult to implement sensibly, as there are several additional complexities and pitfalls associated with these. Potential problems are also not only related to bugs, but possibly also performance and correctness.
@@ -24,7 +23,6 @@ The real world is often complex, and correctly expressing this complex world in 
 \paragraph{Separation of Concerns} Another purpose of software modeling is \emph{separation of concerns}, which involves reducing the perceived complexity of the system by modeling parts that are fairly independent as separate, but collaborating, entities~\cite{braek:itut_methodologies}. This may also allow the system to be modularized, potentially simplifying both implementation and maintenance of the system.
 
 \paragraph{Formal Analysis} With the use of formal and well-established modeling methods, we also open up the system design to formal analysis. Depending on the method, we may be able to mathematically or logically analyze the system architecture in order to uncover inconsistencies or errors, or calculate additional system requirements such as hardware capabilities or bandwidth. This also adds \emph{predictiveness} to the system, providing indications of how the final implementation will behave under various conditions~\cite{selic:model_driven_development}.
-
 
 \subsection{UML Activities}
 \label{sec:uml_activities}
@@ -88,20 +86,19 @@ Because it is a tool for \gls{uml} Activity modeling, with model checking and co
 
 \section{Learning Programming and Software Modeling}
 \label{sec:learning_programming}
-In order to teach potential users to use topics such as a programming language, paradigm, protocol or modeling language, various tools or sources of information may be provided. Generally, some form of formal documentation or specification of the language or protocol is considered mandatory, and serves as the \emph{definitive} source of information. Additionally, various tutorials and exercises are often created in order to provide a better introduction to the topic, decreasing the threshold for learning this topic.
+In order to teach potential users to best utilize topics such as a programming language, programming paradigm, protocol or modeling language, various tools or sources of information may be provided. Generally, some form of formal documentation or specification of the language or protocol is considered mandatory, and serves as the \emph{definitive} source of information.
 
-\subsection{Documentation}
+\noindent
 While a topic's documentation often serves as its primary source of information, such formal documents are not necessarily the best source of information when \emph{learning} about the given topic. Often it is not intended as a learning resource, but rather as a formal reference for users already familiar with the topic. In the documentation, the topic is generally presented in a structured way with respect to its various aspects, so that it is easy for someone already familiar with the topic to find the required information.
 
 \noindent
 A good example of this is the \gls{uml} specification.\footnote{\href{http://www.omg.org/spec/UML/2.4.1/}{OMG: Documents Associated With Unified Modeling Language (UML), V2.4.1 (link)}} While the specification offers detailed information about every aspect of \gls{uml} in a way that suits an experienced user, it is likely confusing and not particularly helpful for a user with no previous experience or knowledge about \gls{uml}. Using this specification as a starting point for learning \gls{uml} is likely to require a lot of effort from the user. In the worst case, the user may not even learn all the concepts properly, despite the provided information being very specific and accurate.
 
 \noindent
-More importantly, the user may not learn how to properly apply the learned concepts to a given situation. In many cases, 
-TODO
+More importantly, the user may not learn how to properly apply the learned concepts to a given situation. There might be subtleties that are difficult to discover without proper guidance, and possibly even potential for misconceptions. This can leave many users with insufficient knowledge and skills within the topic, decreasing the effectiveness and quality of their work, and in the worst case, even preventing them from completing more advanced task.
 
-
-\subsection{Advantages and Challenges}
+\noindent
+While documentation for a topic undoubtedly is a valuable resource, we can safely conclude that it is not always the best learning tool. It has some advantages, such as generally providing very complete and precise information, but this may simply be too much for novice users to comprehend. Instead, novice users more often turn to \emph{tutorials} when wanting to learn about a new topic. For many topics, various tutorials and exercises are often created in order to provide a better introduction to these, decreasing the threshold for learning.
 
 \section{Tutorials}
 \label{sec:tutorials}
@@ -136,7 +133,7 @@ Looking at some of the examples from Sect.~\ref{sec:tutorials}, we see that whil
 API Specification (link)}}
 
 \noindent
-While there are differences in how tutorials for various topics are made, we can identify some general patterns and elements that may be present in a wide range of different tutorials:
+While there are differences in how tutorials for various topics are made, we can identify some general patterns and elements that are present in different types of tutorials:
 \begin{itemize}
 	\item A list of prerequisites, such as knowledge, equipment or both.
 	\item Basic and/or advanced information about the topic, depending on the scope of the tutorial. Often presented in a stepwise manner, starting from the most basic and moving on to the more advanced.
@@ -152,29 +149,51 @@ In various combinations, these elements aim to make the introduction to a topic 
 \noindent
 It is also worth noting that most topics are rarely introduced by a single tutorial. A tutorial is more often designed to introduce only a specific concept within or a part of a topic, with additional tutorials covering other parts. This allows the user to first become familiar with basic concepts, before moving on to tutorials covering the more advanced parts.
 
-\subsection{Tutorials in Video Games}
-\label{sec:tutorial_characteristics}
-Tutorials for video games are generally significantly different from other types of tutorials. They usually provide an \emph{immersive} learning experience within the game itself, by letting players experiment with concepts and offering direct visualization of the consequences.
-
-
-\paragraph{Presence} 
-
-\paragraph{Context-sensitivity}
-
-\paragraph{Degree of freedom}
-
-\paragraph{Help-on-demand}
- 
-
-
 \subsection{What Makes a Tutorial Good?}
 \label{sec:good_tutorials}
-%https://www.udemy.com/blog/how-to-make-a-great-tutorial-video/
-%http://spyrestudios.com/the-anatomy-of-a-great-tutorial/
-%http://www.gamasutra.com/view/feature/134774/the_designers`_notebook_eight_.php
-%http://chris.pirillo.com/how-to-make-a-great-video-tutorial/
-%http://menwithpens.ca/great-tutorial/
+Tutorials are meant to improve the learning process for a given topic. However, a bad tutorial is unlikely to offer much improvement over other learning resources. When creating a tutorial for something, it is important to think about how the tutorial can be created and organized in the best way possible. Some good practices for making tutorials will seem obvious to most people, such as starting with the basics. Other practices may be less obvious, and possibly even contested among professionals.
 
+\noindent
+There are numerous informal sources offering guidance on how to make good tutorials.\footnote{See for example \href{http://spyrestudios.com/the-anatomy-of-a-great-tutorial/}{\emph{SpyreStudios} (link)}, \href{https://www.udemy.com/blog/how-to-make-a-great-tutorial-video/}{\emph{Udemy} (link)}, \cite{adams:bad_tutorial}, \href{http://menwithpens.ca/great-tutorial/}{\emph{Men with Pens} (link)}, and \href{http://chris.pirillo.com/how-to-make-a-great-video-tutorial/}{\emph{Chris Pirillo} (link)}} Many cover specific types of tutorials, such as video tutorials or tutorials for games, while others provide more general guidance. Some of the guidelines these informal guides provide are listed below, in no particular order.
+
+\begin{itemize}
+	\item Structure the tutorial in logical, meaningful steps, and give the user an overview of these steps
+	\item Focus on a target audience, and tailor the tutorial to this audience
+	\item Provide clear examples, and possibly even working demonstrations.
+	\item Make sure the basics are covered sufficiently
+	\item Identify the problem the tutorial aims to solve
+	\item Suggest one or more paths the user can take to continue learning
+	\item Identify the role of the tutorial and concepts it teaches in the larger picture
+	\item Keep the tutorial as short as possible, and communicate information effectively
+	\item Provide sensible visualizations where appropriate
+\end{itemize}
+
+\noindent
+These guidelines should not be interpreted as dogmas, but seem fairly sensible, and should likely be taken into consideration when creating a tutorial for something.
+
+\noindent
+In addition to these informal guidelines, Sect.~\ref{sec:tutorial_design_related} covers some more formal research efforts on various practices and ideas for making good tutorials.
+
+\subsection{Tutorials in Video Games}
+\label{sec:tutorial_characteristics}
+Tutorials for video games are generally different from other types of tutorials. These tutorials usually provide an \emph{immersive} learning experience within the game itself, by letting players experiment with concepts and offering direct visualization of the consequences. Because of this property, some aspects and characteristics of video game tutorials require extra attention and consideration.
+
+\noindent
+The game developer website \emph{Gamasutra}, through contributer Ernest Adams, offers insight into some \emph{bad} practices for video game tutorials, by describing some of the pitfalls tutorial creators may want to avoid~\cite{adams:bad_tutorial}. While the article does not offer much concrete advice on how these can be avoided in a good way, it illustrates some of the significant differences between video game tutorials and other tutorials when compared with other guides. For example, Adams argues that players should not be forced to do the tutorial at all, but have the option to skip parts of or the whole tutorial. Additionally, required reading effort should be kept to a minimum, and the player should not be punished for performing the wrong actions because of lack of experience.
+
+\noindent
+Andersen et.al~\cite{andersen:tutorials_impact} identify and experiment with four video game tutorial characteristics that may affect player engagement and retention.
+
+\paragraph{Presence} The first characteristic the researches considered was whether the game offered a tutorial, or not. They discovered that the presence of a tutorial only made a significant positive difference in the most complex games, where players were less able to discover the workings of the game intuitively though exploration.
+
+\paragraph{Context-sensitivity} The second characteristic explored was the context-sensitivity of the information and guidance provided in the tutorial. Some tutorials provide guidance at the point in the game where it is needed, while others simply offer manuals and documentation outside the context of the game, forcing players to remember information and instructions. The results found were similar to those related to the presence characteristic: providing information and instructions in-context only mattered for complex games, where they positively influenced player engagement.
+
+\paragraph{Degree of freedom} Third on the list was the degree of freedom offered to players in the tutorial. A low degree of freedom means players are forced to perform the actions the tutorial teaches, guiding their exploration, while a high degree of freedom allows players to explore the mechanics more freely. It has been argued that restricting users' actions improves their performance in the tutorial~\cite{kelleher:stencils}, but too much restriction can also have a negative influence~\cite{bonawitz:double_edged_pedagogy}. The results from the research team's experiments however, showed no significant differences in player engagement between the approaches restricting player actions, and allowing complete freedom. It is therefore unclear whether restricting players' actions improve a tutorial or not, and it likely also depends on various other factors.
+
+\paragraph{Help-on-demand} Finally, the availability of help-on-demand resources was considered. Making additional help resources available to players and allowing them to use these when needed, may decrease player frustration when obstacles are encountered, and improve retention. Like with the degree of freedom, it was difficult to consistently determine whether adding help-on-demand improved player engagement and retention, since results varied. The implications of adding help-on-demand also likely depend on other factors in the tutorial.
+
+\noindent
+While designing tutorials for video games requires extra attention to some details, many of the things that apply other types of tutorials are also important for video game tutorials. The purpose is still to try and teach various concepts to a specific audience in the best way possible.
 
 \section{Game-based learning}
 \label{sec:game_based_learning}
@@ -185,14 +204,9 @@ Tutorials for video games are generally significantly different from other types
 \subsection{Learning Inside the Game}
 
 
-\subsection{Applying Acquired Knowledge and Skills in the Game}
-
-\subsection{Non-Serious Games}
-\label{sec:non-serious_games}
-While the term \emph{Serious Games} covers the type of games that are designed for purposes other than entertainment, there are many examples of games designed for entertainment that ``accidentally'' teach their players valuable skills and knowledge.
-
-\noindent
-James P. Gee is a famous advocate for game-based learning. Through his analysis of various ``non-serious'' games, he identifies good principles of learning present in many of these games~\cite{gee:learning_machines}:
+\subsection{Learning from Non-Educational Games}
+\label{sec:non_educational_games}
+James P. Gee is a famous advocate for game-based learning. Through his analysis of various non-educational games, he identifies good principles of learning present in many of these games~\cite{gee:learning_machines}:
 
 \begin{itemize}
 	\item{\textbf{Empowered Learners:}} Players feel like active agents while playing, and not just passive recipients of information. Games are interactive, which leads to perceived ownership and engaged participation.
