@@ -10,7 +10,7 @@ In the world of software development, potential problems and challenges that may
 In addition to many types of software being nontrivial to implement, keeping the code \emph{readable} is an undertaking of its own. When new developers are added to a team that is already deep into the development process, it can take significant time and effort to become familiar with the system. This can be a result of several factors, such as different code styles, massive spread of code (over a vast amount of files or classes), or simply bad code. In many cases, we may also want non-programmers, such as customers or salespeople, to understand what the system does.
 
 \noindent
-Software modeling serves as a solution for smoothing out these processes. Instead of the system specification existing only as code a list of functionality and bugs, it is possible to create a visual and formal model of the system. Such models are more readily understood by non-programmers, and also help other developers become familiar with the overall system architecture more quickly.
+Software modeling serves as a solution for smoothing out these processes. Instead of the system specification existing only as code or a list of functionality and bugs, it is possible to create a visual and formal model of the system. Such models are more readily understood by non-programmers, and also help other developers become familiar with the overall system architecture more quickly.
 
 \subsection{The Purpose of Software Modeling}
 \label{sec:software_modeling_purpose}
@@ -26,15 +26,15 @@ The real world is often complex, and correctly expressing this complex world in 
 
 \subsection{UML Activities}
 \label{sec:uml_activities}
-The \gls{uml} Activity diagram is a modeling concept suitable for expressing processes and workflows, particularly where concurrent behavior is observed. \gls{uml} Activities use \emph{Petri-net-like} semantics, and can be mathematically or logically verified in various ways~\cite{eshuis:uml_verification, kraemer:arctis, storrle:uml_verification}.
+The \gls{uml} activity diagram is a modeling concept suitable for expressing processes and workflows, particularly where concurrent behavior is observed. \gls{uml} activities use \emph{Petri-net-like} semantics, and can be mathematically or logically verified in various ways~\cite{eshuis:uml_verification, kraemer:arctis, storrle:uml_verification}.
 
 \noindent
-In general, \gls{uml} Activity diagrams may consist of a number of different types of elements. These include, among others, logical elements such as \emph{forks} and \emph{joins}, allowing concurrent execution and synchronization of these. Other examples are \emph{decisions}, implementing alternate branches, and \emph{wait nodes}, allowing the application to wait for an event before continuing execution.  The activity is executed as a series of \emph{activity steps}, where each step involves performing the logic of one or more elements. An example of a \gls{uml} Activity diagram containing many of these elements is displayed in Fig.~\ref{fig:activity_diagram}. The various elements are described in more detail within the context of Reactive Blocks, in Sect.~\ref{sec:reactive_blocks}.
+In general, \gls{uml} activity diagrams may consist of a number of different types of elements. These include, among others, logical elements such as \emph{forks} and \emph{joins}, allowing concurrent execution and synchronization of these. Other examples are \emph{decisions}, implementing alternate branches, and \emph{wait nodes}, allowing the application to wait for an event before continuing execution.  The activity is executed as a series of \emph{activity steps}, where each step involves performing the logic of one or more elements. An example of a \gls{uml} activity diagram containing many of these elements is displayed in Fig.~\ref{fig:activity_diagram}. The various elements are described in more detail within the context of Reactive Blocks, in Sect.~\ref{sec:reactive_blocks}.
 
 \begin{figure}[htp]
 	\centering
 	\includegraphics[width=0.8\textwidth]{activity_diagram}
-	\caption[UML Activity Diagram]{An UML Activity diagram for a brainstorming process. The process consists of various \emph{actions}, such as ``Explain problem'' or ``Present idea'', that are separated primarily by conditional logic through \emph{decisions}. We also see some examples of concurrent behavior with synchronization, more specifically before and after the ``Present idea'' and ``Record idea'' actions. Both actions are performed simultaneously, and execution does not continue until both actions have finished. We also see the start and end points of activity execution, the \emph{initial node} and the \emph{final node}, as the two black circles above and below the gray area. \emph{Image source: \url{http://en.wikipedia.org/wiki/Activity_diagram}}}
+	\caption[UML Activity Diagram]{An UML activity diagram for a brainstorming process. The process consists of various \emph{actions}, such as ``Explain problem'' or ``Present idea'', that are separated primarily by conditional logic through \emph{decisions}. We also see some examples of concurrent behavior with synchronization, more specifically before and after the ``Present idea'' and ``Record idea'' actions. Both actions are performed simultaneously, and execution does not continue until both actions have finished. We also see the start and end points of activity execution, the \emph{initial node} and the \emph{final node}, as the two black circles above and below the gray area. \emph{Image source: \url{http://en.wikipedia.org/wiki/Activity_diagram}}}
 	\label{fig:activity_diagram}
 \end{figure}
 
@@ -46,24 +46,24 @@ While software modeling simply can be used to provide better documentation of sy
 Digging deeper into the \gls{mdd} approach, it has been argued that its full potential can only be realized if the models are used to automatically generate complete and fully executable programs~\cite{selic:model_driven_development}. Given a robust and correct deployment, automatic generation of code can help improve correctness, maintainability, and number of software bugs.
 
 \noindent
-There are various commercial and non-commercial projects working on solutions for \gls{mda} and \gls{mdd}, many of them listed on the \gls{omg} website.\footnote{\href{http://www.omg.org/mda/committed-products.htm}{OMG: MDA - Committed Companies And Their Products (link)}} Reactive Blocks, currently in development by Bitreactive AS,\footnote{\href{http://www.bitreactive.com/}{Bitreactive website (link)}} is an example of a solution that generates fully executable applications based on \gls{uml} Activity-like models.
+There are various commercial and non-commercial projects working on solutions for \gls{mda} and \gls{mdd}, many of them listed on the \gls{omg} website.\footnote{\href{http://www.omg.org/mda/committed-products.htm}{OMG: MDA - Committed Companies And Their Products (link)}} Reactive Blocks, currently in development by Bitreactive AS,\footnote{\href{http://www.bitreactive.com/}{Bitreactive website (link)}} is an example of a solution that generates fully executable applications based on \gls{uml} activity-like models.
 
 \subsection{Reactive Blocks}
 \label{sec:reactive_blocks}
-Reactive Blocks is the result of various research efforts in the field of compositional service engineering and \gls{mdd} at \gls{ntnu}\cite{kraemer:arctis_ramses}. The software is released as a plugin for the Eclipse IDE, providing a modeling environment for \gls{uml} Activities. Using the Reactive Blocks tool, these models can be formally analyzed, and further used to automatically generate fully executable applications.
+Reactive Blocks is the result of various research efforts in the field of compositional service engineering and \gls{mdd} at \gls{ntnu}\cite{kraemer:arctis_ramses}. The software is released as a plugin for the Eclipse IDE, providing a modeling environment for \gls{uml} activities. Using the Reactive Blocks tool, these models can be formally analyzed, and further used to automatically generate fully executable applications.
 
 \noindent
-Models Reactive Blocks are based on and very closely resemble \gls{uml} Activity diagrams. Figure~\ref{fig:reactive_blocks_model} shows an example of a model in Reactive Blocks, containing many of the \gls{uml} Activity elements mentioned in Sect.~\ref{sec:uml_activities}. Reactive Blocks is additionally focused around \emph{Collaborative Building Blocks}, allowing complete collaborations or sub-services to be reused in the form of building blocks.
+Models Reactive Blocks are based on and very closely resemble \gls{uml} activity diagrams. Figure~\ref{fig:reactive_blocks_model} shows an example of a model in Reactive Blocks, containing many of the \gls{uml} activity elements mentioned in Sect.~\ref{sec:uml_activities}.
 
 \begin{figure}[htp]
 	\centering
 	\includegraphics[width=1\textwidth]{reactive_blocks_model}
-	\caption[Reactive Blocks model example]{An example of a model in Reactive Blocks, resembling the \gls{uml} Activity diagram in Fig.~\ref{fig:activity_diagram}. The \emph{Counter} and \emph{CoinFlipper} elements are building blocks, containing modularized logic exposed through an \gls{api}.}
+	\caption[Reactive Blocks model example]{An example of a model in Reactive Blocks, resembling the \gls{uml} activity diagram in Fig.~\ref{fig:activity_diagram}. The \emph{Counter} and \emph{CoinFlipper} elements are building blocks, containing modularized logic exposed through an \gls{api}.}
 	\label{fig:reactive_blocks_model}
 \end{figure}
 
 \noindent
-Activities in Reactive Blocks are executed like regular \gls{uml} Activities, as a series of \emph{activity steps}. These steps are implemented in the form of \emph{tokens} moving through sequences of elements (\emph{flows}), activating them along the way. The step finally ends when the token reaches a \emph{stable position}, where it will either stay until the start of another step or be removed. Reactive Blocks models can be built from a number of modeling elements and nodes:
+Activities in Reactive Blocks are executed like regular \gls{uml} activities, as a series of \emph{activity steps}. These steps are implemented in the form of \emph{tokens} moving through sequences of elements (\emph{flows}), activating them along the way. The step finally ends when the token reaches a \emph{stable position}, where it will either stay until the start of another step or be removed. Reactive Blocks models can be built from a number of modeling elements and nodes:
 
 \begin{itemize}
 	\item{\textbf{Edge:}} \emph{Edges} connect other elements in Reactive Blocks, carrying tokens and implementing the flow between them. All edges are directed, and may additionally carry data objects with tokens. With data, the edge is called an \emph{object flow}, and without data, simply a \emph{control flow}.
@@ -82,7 +82,7 @@ Activities in Reactive Blocks are executed like regular \gls{uml} Activities, as
 \end{itemize}
 
 \noindent
-Because it is a tool for \gls{uml} Activity modeling, with model checking and code generation capabilities, Reactive Blocks will serve as the basis for the work in this thesis.
+Because it is a tool for \gls{uml} activity modeling, with model checking and code generation capabilities, Reactive Blocks will serve as the basis for the work in this thesis.
 
 \section{Learning Programming and Software Modeling}
 \label{sec:learning_programming}
@@ -102,9 +102,6 @@ While documentation for a topic undoubtedly is a valuable resource, we can safel
 
 \section{Tutorials}
 \label{sec:tutorials}
-``A tutorial is a method of transferring knowledge and may be used as a part of a learning process. More interactive and specific than a book or a lecture, a tutorial seeks to teach by example and supply the information to complete a certain task.''~\cite{wiki:tutorial}
-
-\noindent
 Tutorials are often used to teach and introduce new topics to users who previously have little or no experience with it. Most commonly, tutorials cover topics and concepts that are difficult to understand intuitively, or to highlight aspects of a concept that are nontrivial and less obvious. Tutorials may be designed for learning a vast range of topics, such as:
 \begin{itemize}
 	\item Programming, or using specific programming or modeling languages.\footnote{\href{http://docs.oracle.com/javase/tutorial/}{The Java Tutorials  (link)}}$^{,}$\footnote{\href{http://www.tutorialspoint.com/uml/}{Tutorialspoint UML Tutorial (link)}}

@@ -1,6 +1,6 @@
 \chapter{Discussion and Conclusion}
 \label{ch:discussion}
-The work of this thesis has been focused around creating a better environment for learning about software modeling languages, more specifically focusing on \gls{uml} Activities within the context of the \emph{Reactive Blocks} modeling tool. Inspired primarily by methods used to teach players how to play video games, two different learning environments were explored.
+The work of this thesis has been focused around creating a better environment for learning about software modeling languages, more specifically focusing on \gls{uml} activities within the context of the \emph{Reactive Blocks} modeling tool. Inspired primarily by methods used to teach players how to play video games, two different learning environments were explored.
 
 \section{The Tutorial}
 \label{sec:discussion_tutorial}
@@ -10,26 +10,26 @@ The first teaching method explored was the \emph{tutorial}, a concept widely use
 When creating the tutorial, various learning practices were taken into consideration. These were a mixture of good practices for video game tutorials and other types of tutorials, from both formal and informal sources. A summary of these is provided in Sect.~\ref{sec:good_practices_tutorials}.
 
 \noindent
-A few iterations of going through \gls{uml} Activity concepts and figuring out their interdependencies, finding the least amount of information required to describe them accurately, and designing suitable exercises for understanding their semantics, resulted in a seven-step tutorial. Each step gave a short introduction of one or more concepts, and challenged learners with an exercise to solve using these concepts. The tutorial and its seven steps is described in more detail in Sect.~\ref{sec:tutorial_design}.
+A few iterations of going through \gls{uml} activity concepts and figuring out their interdependencies, finding the least amount of information required to describe them accurately, and designing suitable exercises for understanding their semantics, resulted in a seven-step tutorial. Each step gave a short introduction of one or more concepts, and challenged learners with an exercise to solve using these concepts. The tutorial and its seven steps is described in more detail in Sect.~\ref{sec:tutorial_design}.
 
 \noindent
 Unfortunately, not all of these practices were feasible to implement within the given frame, particularly because of the constrains provided by the proprietary Reactive Blocks modeling environment. This meant some of the goals that had initially been set for the tutorial had to be forgone, and some adjustments had to be made to the tutorial design. The most prominent change was that all concept and task information had to be provided outside the modeling environment, in a supplementary document. Sections~\ref{sec:tutorial_goals_fulfilled} and~\ref{sec:tutorial_goals_not_fulfilled} provide a more detailed overview of the extent to which each goal was fulfilled by the tutorial design and implementation.
 
 \noindent
-In order to uncover any major flaws or issues with the tutorial, and additionally get an impression of its teaching potential, a user test with a small number of test subjects was conducted. The testing session revealed a number of issues that required some additional consideration, and the main bulk of these were related, directly or indirectly, to the use of Reactive Blocks as the modeling environment. The session also provided some indications that the tutorial could indeed be a very good way of learning about \gls{uml} Activities, particularly with respect to providing motivation for learners. The tutorial may not be an adequate tool for learning to use Reactive Blocks however, as follow-up observations of the test subjects revealed that many of them struggled when working with Reactive Blocks, on account of the concepts that were not covered in the tutorial.
+In order to uncover any major flaws or issues with the tutorial, and additionally get an impression of its teaching potential, a user test with a small number of test subjects was conducted. The testing session revealed a number of issues that required some additional consideration, and the main bulk of these were related, directly or indirectly, to the use of Reactive Blocks as the modeling environment. The session also provided some indications that the tutorial could indeed be a very good way of learning about \gls{uml} activities, particularly with respect to providing motivation for learners. The tutorial may not be an adequate tool for learning to use Reactive Blocks however, as follow-up observations of the test subjects revealed that many of them struggled when working with Reactive Blocks, on account of the concepts that were not covered in the tutorial.
 
 \noindent
-Although I was unable to implement and test several of the tutorial design principles, the tutorial served as a good starting point for establishing a teaching order for concepts in \gls{uml} Activities, and figuring out how much information users need in order to solve certain types of exercises related to each concept. These results laid the foundation for the \emph{Reactive Blocks game}, which was the second teaching method explored.
+Although I was unable to implement and test several of the tutorial design principles, the tutorial served as a good starting point for establishing a teaching order for concepts in \gls{uml} activities, and figuring out how much information users need in order to solve certain types of exercises related to each concept. These results laid the foundation for the \emph{Reactive Blocks game}, which was the second teaching method explored.
 
 \section{The Game}
 \label{sec:discussion_game}
-The second teaching method explored in this thesis was to teach \gls{uml} Activity concepts inside a game. Learning games are becoming very popular in many levels of education because they offer a more immersive and interactive learning experience, among other things. Teaching \gls{uml} Activities with a game gave more potential for utilizing game strategies for introducing and teaching new concepts, such as giving learners a sense of \emph{empowerment} and \emph{identity}. The design, implementation, testing, and evaluation of the learning game is covered in Ch.~\ref{ch:tutorial_game}.
+The second teaching method explored in this thesis was to teach \gls{uml} activity concepts inside a game. Learning games are becoming very popular in many levels of education because they offer a more immersive and interactive learning experience, among other things. Teaching \gls{uml} activities with a game gave more potential for utilizing game strategies for introducing and teaching new concepts, such as giving learners a sense of \emph{empowerment} and \emph{identity}. The design, implementation, testing, and evaluation of the learning game is covered in Ch.~\ref{ch:tutorial_game}.
 
 \noindent
 Like with the tutorial, the learning game is based on a set of principles for designing this type of game, and these are summarized in Sect.~\ref{sec:good_practices_games}. Additionally, the game would have a lot in common with a tutorial, so consideration was made with respect to the principles for good tutorials, and the lessons learned from the design and testing of the tutorial in Ch.~\ref{ch:reactive_blocks_tutorial}.
 
 \noindent
-The design and implementation process resulted in a first prototype version of a game with 5 levels, covering only part of the seven steps from the tutorial. The game was meant to have more levels, but we wanted to conduct a usability study in order to discover any serious issues as early as possible. The concept of the game is a two-dimensional world, where the player controls a character, performing various tasks. The character is controlled entirely through \gls{uml} Activity/Reactive Blocks models, which the player has to set up prior to launching the game level. Each level also has an introduction part, similar to the introductions given with the tutorial, but more extensive and with additional resources. The complete design and implementation of the game is covered in Sections~\ref{sec:game_design} and~\ref{sec:game_implementation}.
+The design and implementation process resulted in a first prototype version of a game with 5 levels, covering only part of the seven steps from the tutorial. The game was meant to have more levels, but we wanted to conduct a usability study in order to discover any serious issues as early as possible. The concept of the game is a two-dimensional world, where the player controls a character, performing various tasks. The character is controlled entirely through \gls{uml} activity/Reactive Blocks models, which the player has to set up prior to launching the game level. Each level also has an introduction part, similar to the introductions given with the tutorial, but more extensive and with additional resources. The complete design and implementation of the game is covered in Sections~\ref{sec:game_design} and~\ref{sec:game_implementation}.
 
 \noindent
 While the game format allowed consideration and implementation of some additional ``good'' practices, there were still issues that were difficult to deal with because of the Reactive Blocks modeling environment. A usability test with three test subjects revealed that all three, who were novice users, had difficulties with correctly understanding and using a number of \gls{ui} processes and elements in Reactive Blocks. This was despite the fact that some additional \gls{ui} help had been added to the introduction part of the game, as a result of some of the same issues appearing in the tutorial test. Apart from those related to Reactive Blocks, the usability test revealed only minor \gls{ui} issues that could be taken into consideration for the next version of the prototype.
@@ -38,7 +38,7 @@ While the game format allowed consideration and implementation of some additiona
 In addition to usability-related results, the testing sessions also revealed that the test subjects gained a lower understanding of the concepts presented than desired. Some hints of potential misconceptions were also observed. This could likely mean that 5 levels is not sufficient to really learn these concepts, and that more practice is required. If this is the case, it can be solved by adding additional levels and challenges, for the players to practice their skills and knowledge more, and with different perspectives. In any case, more testing is needed to properly verify and understand the issue, preferably on a more complete version of the game.
 
 \noindent
-On a brighter note, all three subjects stated that they enjoyed the game as a tool for learning about \gls{uml} Activities and Reactive Blocks, and would likely prefer it over other ways of learning. However, more than three opinions are likely needed in order to verify a real interest in this type of learning resource. It also remains to be seen whether a game like this will instill deep learning in players, but research supports that this is the case for well-designed educational games (see Sect.~\ref{sec:game_based_learning}).
+On a brighter note, all three subjects stated that they enjoyed the game as a tool for learning about \gls{uml} activities and Reactive Blocks, and would likely prefer it over other ways of learning. However, more than three opinions are likely needed in order to verify a real interest in this type of learning resource. It also remains to be seen whether a game like this will instill deep learning in players, but research supports that this is the case for well-designed educational games (see Sect.~\ref{sec:game_based_learning}).
 
 \noindent
 The game is still in a relatively early stage, but the results so far are encouraging. Further development of the game will however not continue within the scope of this thesis, because of time constraints.
@@ -65,14 +65,16 @@ As the final part of this thesis, some suggestions for future work are included.
 \subsection{Complete Game}
 
 
-\subsection{Different Modeling Platform}
+
 
 
 \subsection{Comparative Studies}
-The weakest part of this thesis is likely that I was unable to perform proper comparative studies, pitting the \emph{Reactive Blocks game} against other similar learning resources in order to measure factors like player engagement and levels of understanding. This was not feasible because of constraints on time and resources. Comparative studies would however have been prudent in this context, and should thus be the second priority for any future work (after fixing simpler issues and adding more content).
+The weakest part of this thesis is likely that I was unable to perform proper comparative studies, pitting the \emph{Reactive Blocks game} against other similar learning resources in order to measure factors like player engagement and levels of understanding. This was not feasible because of constraints on time and resources. Comparative studies would however have been prudent in this context, and should thus be the second priority for any future work (after fixing the simpler issues and adding more content to the game).
 
 \noindent
 More specifically, the game can be studied in comparison to the tutorial in Ch.~\ref{ch:reactive_blocks_tutorial}, any of the existing tutorials mentioned in Sect.~\ref{sec:existing_tutorials}, or the lazier approach of just letting learners dig through documentation.
+
+\subsection{Different Modeling Environment}
 
 
 \subsection{Other Modeling Languages}
