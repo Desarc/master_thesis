@@ -46,27 +46,28 @@ The game is still in a relatively early stage, but the results so far are encour
 
 \section{Concluding Remarks}
 \label{sec:concluding_remarks}
+The work of this thesis has been about exploring the use of game-related learning principles and strategies for teaching software modeling with \gls{uml} activities. Two different teaching approaches were explored:  the first approach simply incorporated many of the learning principles in a stepwise modeling tutorial, and the second approach involved designing a game with levels teaching the same steps, but in a more immersive environment.
 
-- why reactive blocks?
-- tutorial as a good way of learning modeling languages and mdd?
-- compare to existing tutorials
-	* it is hard to draw conclusions without comparative studies
-	* but measures up pretty good with respect to usability and learning principles
-- game as a good way of learning?
+\noindent
+Some minor tests of the two approaches were conducted, yielding indicative but interesting results. Both approaches were found to be flawed in some ways, but they also showed great potential for teaching the concepts in question to the target audience in an interesting and motivating way. It is however difficult to draw any conclusions about how the two approaches would measure up against other learning resources for the same concepts, without data from comparative studies.
 
+\noindent
+It is also worth noting that with regard to established theoretical usability and learning principles, both approaches measure up quite well by \emph{design}, despite the \emph{implementations} lacking some important features. Whether implementing all of these features will actually be beneficial to the learning experience or not is however a little uncertain, as users have been known to behave unpredictably~\cite{andersen:tutorials_impact}.
 
+\noindent
+In the end, there is no reason to believe that learning strategies from games will \emph{not} be appropriate also for learning modeling languages, as there have been no results indicating this. At the same time, there is not enough ground in this thesis alone to conclude that they \emph{definitely will be} appropriate either. There are however several other research efforts endorsing this approach for teaching programming, which is a very closely related topic.
 
+\noindent
+The conclusion to be drawn from this thesis is the following: using learning strategies from games to teach modeling languages is definitely worth exploring, but designing and implementing a good learning environment is not trivial, and requires a considerable amount of work and effort. Hopefully, the work and examples provided here can serve as a starting point for others.
 
+\clearpage
 
 \section{Future Work}
 \label{sec:future_work}
 As the final part of this thesis, some suggestions for future work are included. There are several possible paths to take, and some are described in the following sections.
 
 \subsection{Complete Game}
-
-
-
-
+The most prominent path to take would be to continue development of the Reactive Blocks game, improving on the prototype and moving closer to a ``finished'' game. The current prototype is a little lacking in content, in addition to needing some minor fixing. There is also great potential for improving the modeling environment, particularly in order to improve usability. Section.~\ref{sec:game_improvement} contains some more concrete suggestions on how to continue the development of the game. 
 
 \subsection{Comparative Studies}
 The weakest part of this thesis is likely that I was unable to perform proper comparative studies, pitting the \emph{Reactive Blocks game} against other similar learning resources in order to measure factors like player engagement and levels of understanding. This was not feasible because of constraints on time and resources. Comparative studies would however have been prudent in this context, and should thus be the second priority for any future work (after fixing the simpler issues and adding more content to the game).
@@ -74,8 +75,5 @@ The weakest part of this thesis is likely that I was unable to perform proper co
 \noindent
 More specifically, the game can be studied in comparison to the tutorial in Ch.~\ref{ch:reactive_blocks_tutorial}, any of the existing tutorials mentioned in Sect.~\ref{sec:existing_tutorials}, or the lazier approach of just letting learners dig through documentation.
 
-\subsection{Different Modeling Environment}
-
-
 \subsection{Other Modeling Languages}
-- state machine systems
+This thesis has been focused around teaching \gls{uml} activities, more specifically in the context of Reactive Blocks, using teaching principles and strategies from games. It could also be interesting to use the same approach with other modeling languages, such as \gls{uml} state machines, sequence diagrams, flowcharts, or even class diagrams. These will likely provide different challenges with respect to game and exercise design, but allow use of the same teaching principles.
