@@ -1,12 +1,41 @@
 \chapter{Introduction}
 \label{ch:intro}
-TODO
+Video games are a popular form of entertainment, played by children and adults alike~\cite{esa:gamer_data}. In addition to being a source of entertainment, video games provide environments that facilitate learning of many different skills~\cite{gee:video_games_learning}. The popularity of video games, combined with their potential as good learning environments, has resulted in a boom of \emph{educational games} and \emph{game-like teaching methods}, covering a vast amount of different subjects in all levels of education~\cite{esper:codespells, ma:serious_games, pattis:karel_the_robot, resnick:scratch}. Some even consider educational games to be more suitable than many traditional teaching methods for today's younger generations~\cite{nea:four_cs, shaffer:epistemic_games}.
 
+\noindent
+Software modeling is the process of expressing the architecture, structure, or semantics of a system through visual diagrams and abstractions, as opposed to lower-level representations like source code. There can be many reasons for using models to describe software, including making its structure easier to understand, and having a specification that is independent of any implementation~\cite{braek:itut_methodologies, selic:model_driven_development}.
 
+\noindent
+When wanting to learn about a modeling language, the resources available are often limited to the language's documentation, or ``tutorials'' that simply provide short summaries of the modeling language.\footnote{For an example, see \url{http://www.tutorialspoint.com/uml/uml_activity_diagram.htm}} Both options are relatively cheap and easy by creators to provide, and generally describe the given language thoroughly and accurately, but neither are particularly good as primary \emph{learning} resources.
 
-%\section{Problem Definition and Scope}
+\noindent
+The purpose of this thesis is to explore the use of learning principles and strategies from video games to teach modeling languages. The goal is that by using these principles, learners will hopefully be as motivated and interested to learn about a modeling language as when they are playing and learning a video game. More specifically this includes providing an interactive learning experience, teaching advanced concepts one step at a time, in an environment that is intuitive to use and understand.
+
+\section{Scope and Methodology}
 \label{sec:scope}
+This thesis focuses on using strategies and principles from games to teach concepts within \gls{uml}, more specifically \gls{uml} activities in the context of Reactive Blocks. Various teaching principles used in video games and their tutorials, as well as some related research on the usability of tutorials, is analyzed in order to provide a theoretical foundation for a better learning environment for \gls{uml} activities.
 
+\noindent
+Based on the theoretical foundation, two different learning environments are designed and implemented: an improved and interactive tutorial, and an educational game for \gls{uml} activities. The implementations are then user tested and qualitatively evaluated with respect to usability and teaching potential.
 
-%\section{Organization of the Report}
+\noindent
+The work of this thesis provides a starting point for exploring this particular field of study. We establish a set of principles that should be considered when creating a good learning environment for modeling languages, outline the various challenges associated with this, and suggest some concrete solutions in the form of tutorial and game prototypes. Because of the proprietary nature of Reactive Blocks, not all of the established principles are possible to implement in the prototypes within the scope of this thesis, but their absence is accounted for in the evaluations.
+
+\section{Organization of the Thesis}
 \label{sec:organization}
+The work of this thesis has been an incremental process, and is presented as such. First, the world of tutorials and educational games is explored in order to establish a set of principles to base the thesis on. These principles are then used to design, implement, and test an improved tutorial for \gls{uml} activities in Reactive Blocks. In turn, experiences and results from evaluation of the tutorial serve as the basis for an educational game, in an attempt to improve the learning experience even further. Finally, the educational game is evaluated with respect to the principles established in the first part of the thesis.
+
+\noindent
+Chapters~\ref{ch:background} and~\ref{ch:related_work} form the background part, offering mostly introductions to the primary topics touched by this thesis, and brief summaries of related work. A brief analysis of the background material is also provided, highlighting the parts that are most important in the work described in the following chapters.
+
+\noindent
+Chapter~\ref{ch:reactive_blocks_tutorial} covers the design, implementation, testing, and evaluation of the \gls{uml} activity/Reactive Blocks tutorial. First, parameters are established, such as target audience and design goals. A design for the tutorial is then proposed and partially implemented, including a teaching order for concepts, short concept introductions, an exercise for each tutorial step, and design for ``tutorial mode'' in Reactive Blocks. The tutorial is then tested on a small number of subjects, and evaluated with respect to the design goals, general usability, and teaching potential.
+
+\noindent
+Chapter~\ref{ch:tutorial_game} contains the second part of the work of this thesis, namely the process of designing, implementing, testing and evaluating a prototype of the Reactive Blocks game. This process is similar to that of creating the tutorial, starting with some design goals. An overall game concept is then established, with designs of levels and a tutorial part. Based on the design, a prototype is implemented and tested with focus on usability and uncovering problems. Finally, the game is evaluated with respect to usability and the design goals.
+
+\noindent
+As the concluding part of this thesis, Ch.~\ref{ch:discussion} provides a summary of all the work done, with some additional reflections and suggestions for future work.
+
+\noindent
+Some of the thesis material is inconvenient or inappropriate to include in this document, and is provided either as supplementary files or links to online resources. More specifically, this includes source code for the tutorial and the Reactive Blocks game, slide shows for the introductions in the game, and video recordings of each level in the game.

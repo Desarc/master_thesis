@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<block
+    name="Exercise2_challenge" 
+    uuid="_hyLFU5KHEeOl-Iu2G_3qHw" 
+    status="published" 
+    type="system" 
+    >
+    <required>
+        <resource path="resources/car_yellow.jpg"/>
+        <resource path="resources/green_light.jpg"/>
+        <resource path="resources/pedestrian_green.jpg"/>
+        <resource path="resources/pedestrian_red.jpg"/>
+        <resource path="resources/red_light.jpg"/>
+        <package name="no.ntnu.item.tutorials.exercise2_challenge.component"/>
+        <package name="utils"/>
+    </required>
+</block>
